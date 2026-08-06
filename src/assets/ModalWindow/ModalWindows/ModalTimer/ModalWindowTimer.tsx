@@ -1,4 +1,4 @@
-import { useState, type ReactNode, memo } from 'react';
+import { useState, type ReactNode, memo, useEffect, useRef } from 'react';
 import ModalWindowTimerButton from './ModalWindowTimerBTN';
 import TimeInput from '../../../Inputs/TimeInput/TimeInput';
 import ButtonM3 from '../../../ButtonM3/ButtonM3';
@@ -15,15 +15,18 @@ interface IModalTimer {
 function ModalWindowTimer(props: IModalTimer) {
     const timerManager = useTimerManager();
     const timerPull = useTimerPull();
+    const [min, sec] = [useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null)];
+
 
     return (
         <>
             <div className='ModalWindowTimerConteiner'>
                 <div className="ModalWindowTimerList">
+
                     {Array.from(timerPull.values()).map((timer) => (
                         <ModalWindowTimerButton
                             key={timer.id}
-                            CallbackPlayPause={() => { timerManager.setToggle(timer.id); console.log(timer.id); console.log(timerPull)}}
+                            CallbackPlayPause={() => { timerManager.setToggle(timer.id); console.log(timer.id); console.log(timerPull) }}
                             CallbackDelete={() => { timerManager.removeTimer(timer.id) }}
                             Time={timerManager.formatTime(timer.remainingS)}
                             PlayPauseState={timer.stateAction} />
@@ -34,10 +37,20 @@ function ModalWindowTimer(props: IModalTimer) {
                 <div className="ModalWindowTimerControlPanel">
                     <div className="ModalWindowTimerLable">New Timer</div>
                     <div className="ModalWindowTimerInput">
-                        <TimeInput></TimeInput>
+                        <TimeInput refInputMin={min} refInputSec={sec} ></TimeInput>
                     </div>
                     <div className="ModalWindowTimerContolBTN">
-                        <ButtonM3 icons={<PlacehodelIcon></PlacehodelIcon>} lable={'Add Timer'} onClick={() => { }} customClass=' ModalBtnAdd'></ButtonM3>
+                        <ButtonM3
+                            icons={<PlacehodelIcon></PlacehodelIcon>}
+                            lable={'Add Timer'}
+                            onClick={() => {
+                                console.log(min.current?.value, sec.current?.value);
+                                timerManager.addTimer({
+                                    duration: min.current?.value + ':' + sec.current?.value,
+                                    stateAction: 'RUNING'
+                                })
+                            }}
+                            customClass=' ModalBtnAdd'></ButtonM3>
                         <ButtonM3_grup
                             options={[
                                 {

@@ -20,6 +20,7 @@ export class TimerEngine {
     private timeOutUpdateS: number = 1;
     private TimerPull: Map<number, Timer> = new Map<number, Timer>();
     private listeners = new Set<() => void>();
+    private pinTimerID: number = 0;
 
     public start() {
         if (this.isRunning) return;
@@ -37,11 +38,29 @@ export class TimerEngine {
             statePrevAction: timer.stateAction,
         }
         this.TimerPull.set(newTimer.id, newTimer);
+        this.idTimer++;
         console.log(this.TimerPull);
+        this.notify();
 
     }
 
+    public setPinTimerDefult(id: number){
+        let index = 0;
+        for(const [key] of this.TimerPull){
+            if (index === id){ 
+                this.pinTimerID = key; 
+                return;
+            }
+            index++;
+        }
+    }
+
+    public getIdPinTimer(){
+        return this.pinTimerID;
+    }
+
     public removeTimer(id: number): boolean {
+        this.notify();
         return this.TimerPull.delete(id);
     }
 
@@ -50,7 +69,7 @@ export class TimerEngine {
     }
 
     public getTimer(id: number): Timer | undefined{
-        return this.TimerPull.get(id)
+        return this.TimerPull.get(id);
     }
 
     public setToggle(id: number): undefined | boolean{
@@ -67,6 +86,7 @@ export class TimerEngine {
                 timer.statePrevAction = 'INF';
             }
         }
+        this.notify();
     }
 
     public subscribe(listener: () => void) {

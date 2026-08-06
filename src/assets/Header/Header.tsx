@@ -35,7 +35,8 @@ function HeaderDropDownTitle() {
 
 function HeaderButtonTimer() {
     const timerManager = useTimerManager();
-    const timer = useTimer(0);
+    timerManager.setPinTimerDefult(0);
+    const timer = useTimer(timerManager.getIdPinTimer());
     const dispatch = useDispatch();
 
     return <>
