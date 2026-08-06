@@ -1,0 +1,36 @@
+body {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.MainPage{
+  display: grid;
+  height: 100vh;
+  grid-template-rows: 100px 1fr;
+}
+
+
+.testMain {
+  display: grid;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  min-height: 100vh;
+
+  background-color: #3f3f3f;
+  place-items: center;
+    align-items: center;
+  justify-items: center;
+}
+
+.testConteiner{
+  display: grid;
+  position: absolute;
+  align-items: center;
+  justify-items: center;
+
+}

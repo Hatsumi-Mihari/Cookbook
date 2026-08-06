@@ -1,0 +1,105 @@
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    margin: 0 !important;
+    display: none !important;
+}
+
+.TimeInputMainConteiner {
+    display: grid;
+    grid-template-columns: 1fr 20px 1fr;
+    grid-auto-flow: dense;
+    width: 211px;
+    height: 108px;
+
+    &::after {
+        display: grid;
+        content: ':';
+        justify-self: center;
+        font-size: 3.2em;
+        height: 80px;
+        font-weight: 400;
+        margin-top: 6px;
+        grid-column: 2;
+        grid-row: 1;
+    }
+
+    .TimeInputConteiner {
+        display: grid;
+        grid-template-rows: 80px 20px;
+        row-gap: 8px;
+        font-weight: 400;
+
+        .TimeInputLable {
+            font-size: 1em;
+            font-weight: 200;
+        }
+
+
+        .TimerInputWrap {
+            display: grid;
+            align-items: center;
+            justify-items: center;
+            width: 96px;
+            height: 80px;
+            box-sizing: border-box;
+            text-align: center;
+            border: 2px red solid;
+            border-radius: 4pt;
+
+
+            .TimeInputInput {
+                display: block;
+                -webkit-appearance: none;
+                -moz-appearance: textfield;
+                appearance: none;
+
+                border: none;
+                outline: none;
+                background: transparent;
+                box-shadow: none;
+
+                font-family: inherit;
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: inherit;
+                text-align: center;
+
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                height: 100%;
+                font-size: 4em;
+                font-weight: 400;
+
+
+                &::-webkit-outer-spin-button,
+                .time-input::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+
+                &::-ms-clear {
+                    display: none;
+                }
+
+                &::-webkit-input-placeholder {
+                    text-align: center;
+                    line-height: normal;
+
+                }
+
+                &::-moz-placeholder {
+                    text-align: center;
+                    opacity: 1;
+                }
+
+                &::placeholder {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
