@@ -1,0 +1,25 @@
+{
+    "header":{
+        "dropdownList": [
+            {
+                "link": "", 
+                "lable": "Main",
+                "value": "Main",
+                "icon": "null"
+            },
+            {
+                "link": "", 
+                "lable": "Gluten",
+                "value": "Gluten",
+                "icon": "null"
+            },
+            {
+                "link": "", 
+                "lable": "Delivery",
+                "value": "Delivery",
+                "icon": "null"
+            }
+        ],
+        "defaultValue": "Main"
+    }
+}

@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { ReactNode } from 'react';
-import type { IModalState, ModalType } from './ModalState';
+import type { IModalState, ModalType } from '../../assets/ModalWindow/ModalWindows/ModalTimer/ModalState';
 
 const initialModalState: IModalState = {
     isOpen: false,

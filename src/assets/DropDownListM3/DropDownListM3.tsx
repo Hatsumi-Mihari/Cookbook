@@ -1,6 +1,6 @@
 import './DropDownListM3.scss'
 import { useEffect, useState, memo, useCallback, useMemo, useRef } from 'react';
-import useOnClickOutside from '../Hooks/useOnClickOutside'
+import useOnClickOutside from '../../store/Hooks/useOnClickOutside';
 import PlaceHolderIcon from '../icons/asterisk_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react'
 import ArrowStateOpen from '../icons/arrow_drop_down_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react'
 import SelectedIcon from '../icons/check_small_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react'
@@ -13,7 +13,7 @@ export interface IDropDownListOptions {
 
 interface IDropDownList {
     valueDefault?: string;
-    options: IDropDownListOptions[];
+    options: IDropDownListOptions[] ;
     onChangeValue: (value: string) => void;
 }
 
@@ -31,6 +31,7 @@ function DropDownListM3(props: IDropDownList) {
 
     const heandlerChange = useCallback((index: number) => {
         setIDSelected(index);
+        console.log(props.options);
         props.onChangeValue(props.options[index].value);
         setActive(false);
     }, []);
@@ -49,8 +50,8 @@ function DropDownListM3(props: IDropDownList) {
             else setIDSelected(index_seleted);
         };
 
-        props.onChangeValue(props.options[idSelected].value);
-        console.log("Mount");
+        props.onChangeValue(props.options[idSelected]?.value);
+        console.log(props.options)
     }, []);
 
     return (

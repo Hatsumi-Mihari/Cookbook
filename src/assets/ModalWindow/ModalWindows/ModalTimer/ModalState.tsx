@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import ModalWindowTimer from "./ModalWindows/ModalTimer/ModalWindowTimer";
+import ModalWindowTimer from "./ModalWindowTimer";
 
 type ModalRenderFn<T extends Record<string, unknown> = Record<string, unknown>> = (
   props: T

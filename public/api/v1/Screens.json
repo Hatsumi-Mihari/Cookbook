@@ -1,0 +1,64 @@
+{
+    "Main_Screen": [
+        {
+            "id": 1,
+            "title": "Menu",
+            "img_src": "none",
+            "link": ""
+        },
+        {
+            "id": 2,
+            "title": "Pizza",
+            "img_src": "none",
+            "link": "none"
+        },
+        {
+            "id": 3,
+            "title": "Antipati",
+            "img_src": "none",
+            "link": "none"
+        },
+        {
+            "id": 4,
+            "title": "Saladas",
+            "img_src": "none",
+            "link": "none"
+        }
+    ],
+    "Categoris": [
+        {
+            "lable": "Menu",
+            "data": [
+                {
+                    "id": 54,
+                    "title": "Fondente",
+                    "img_src": "none",
+                    "link": "none"
+                },
+                {
+                    "id": 55,
+                    "title": "Fondente2",
+                    "img_src": "none",
+                    "link": "none"
+                }
+            ]
+        },
+        {
+            "lable": "Antipati",
+            "data": [
+                {
+                    "id": 56,
+                    "title": "Fondente",
+                    "img_src": "none",
+                    "link": "none"
+                },
+                {
+                    "id": 57,
+                    "title": "Fondente2",
+                    "img_src": "none",
+                    "link": "none"
+                }
+            ]
+        }
+    ]
+}
