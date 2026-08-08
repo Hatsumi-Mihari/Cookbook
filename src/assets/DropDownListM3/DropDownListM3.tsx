@@ -8,13 +8,14 @@ import SelectedIcon from '../icons/check_small_24dp_E3E3E3_FILL0_wght400_GRAD0_o
 export interface IDropDownListOptions {
     lable: string;
     value: string;
+    typeID: number;
     icon?: ReactNode;
 };
 
 interface IDropDownList {
     valueDefault?: string;
     options: IDropDownListOptions[] ;
-    onChangeValue: (value: string) => void;
+    onChangeValue: ({value, typeID}:{value: string, typeID:number}) => void;
 }
 
 function DropDownListM3(props: IDropDownList) {
@@ -32,7 +33,10 @@ function DropDownListM3(props: IDropDownList) {
     const heandlerChange = useCallback((index: number) => {
         setIDSelected(index);
         console.log(props.options);
-        props.onChangeValue(props.options[index].value);
+        props.onChangeValue({
+            value: props.options[index].value, 
+            typeID: props.options[index].typeID
+        });
         setActive(false);
     }, []);
 
@@ -50,7 +54,10 @@ function DropDownListM3(props: IDropDownList) {
             else setIDSelected(index_seleted);
         };
 
-        props.onChangeValue(props.options[idSelected]?.value);
+        props.onChangeValue({
+            value: props.options[idSelected]?.value, 
+            typeID: props.options[idSelected]?.typeID
+        });
         console.log(props.options)
     }, []);
 

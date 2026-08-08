@@ -1,15 +1,29 @@
 import DropDownListM3 from '../DropDownListM3/DropDownListM3';
 import { useAppSelector } from '../../store/Hooks/useAppHooks';
 import { memo, useEffect, useState } from 'react'
+import { useAppDispatch } from '../../store/Hooks/useAppHooks';
+import { updateGlobalFilter } from '../../store/Slices/AppSlice';
 
 
 function HeaderDropDownTitle() {
-    const [headerLable, setHeaderLable] = useState("");
+    const [dropdownOut, updateDopDownout] = useState({
+        value: "", typeID: 0
+    });
     const appstate = useAppSelector((state) => state.AppState);
+    const appDispatch = useAppDispatch(); 
 
     useEffect(() => {
-        if (appstate.header?.header) setHeaderLable(appstate.header?.header?.defaultValue);
+        if (appstate.header?.header) updateDopDownout({
+            value: appstate.header.header.defaultValue,
+            typeID: appstate.header.header.defaultFilterID
+        });
     }, [appstate.readyLoad])
+
+    useEffect(() => {
+        console.log(dropdownOut);
+        appDispatch(updateGlobalFilter(dropdownOut.typeID));
+    }, 
+    [dropdownOut]);
 
     return <>
         {appstate.readyLoad ?
@@ -18,12 +32,13 @@ function HeaderDropDownTitle() {
                     options={appstate.header?.header?.dropdownList.map((item) => ({
                         lable: item.lable,
                         value: item.value,
+                        typeID: item.typeID,
                         icon: null,
                     })) || []}
-                    onChangeValue={setHeaderLable}
+                    onChangeValue={updateDopDownout}
                     valueDefault={appstate.header?.header?.defaultValue}
                 />
-                <div className="HeaderLable">{headerLable}</div>
+                <div className="HeaderLable">{dropdownOut.value}</div>
             </> : <></>}
     </>
 }

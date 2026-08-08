@@ -5,21 +5,25 @@
                 "link": "", 
                 "lable": "Main",
                 "value": "Main",
+                "typeID": 101,
                 "icon": "null"
             },
             {
                 "link": "", 
-                "lable": "Gluten",
+                "lable": "Gluten", 
                 "value": "Gluten",
+                "typeID": 102,
                 "icon": "null"
             },
             {
                 "link": "", 
                 "lable": "Delivery",
                 "value": "Delivery",
+                "typeID": 103,
                 "icon": "null"
             }
         ],
-        "defaultValue": "Main"
+        "defaultValue": "Main",
+        "defaultFilterID": 101
     }
 }

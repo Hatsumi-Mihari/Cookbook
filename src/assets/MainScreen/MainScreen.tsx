@@ -5,12 +5,20 @@ import { useAppSelector } from '../../store/Hooks/useAppHooks';
 
 function MainScreen() {
     const content = useAppSelector((state) => state.AppState.content);
+    const filterID = useAppSelector((state) => state.AppState.globalFilterID);
 
     return (
         <div className="MainScreen">
             <div className="MainScreenCradsConteiner">
-                {content?.Main_Screen.map((item) => 
-                    <MainCard key={Date.now() + item.id} imgSrc={item.img_src} title={item.title} onClick={() => alert(content.Categoris[item.id-1].lable)}></MainCard>
+                {content?.Main_Screen.map((item) =>{
+                    const indlude = item.typeID.includes(filterID);
+
+                    return (indlude ? <MainCard
+                        key={Date.now() + item.id}
+                        imgSrc={item.img_src}
+                        title={item.title}
+                        onClick={() => alert(content.Categoris[item.id - 1].lable)}></MainCard> : <></>)
+                }
                 )}
             </div>
         </div>

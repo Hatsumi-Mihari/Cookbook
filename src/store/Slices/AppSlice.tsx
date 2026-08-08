@@ -7,6 +7,7 @@ import {endpoints} from '../../../public/api/endpoints'
 
 interface IStateApp{
     readyLoad: boolean;
+    globalFilterID: number;
     conf: RootConf | null;
     header: RootHeader | null;
     content: RootScreen | null;
@@ -14,6 +15,7 @@ interface IStateApp{
 
 const initialStateApp: IStateApp = {
     readyLoad: false,
+    globalFilterID: -1,
     conf: null,
     header: null,
     content: null,
@@ -45,6 +47,10 @@ export const sliceStateApp = createSlice({
     name: 'AppState',
     initialState: initialStateApp,
     reducers: {
+        updateGlobalFilter: (state, action: PayloadAction<number>) => {
+            state.globalFilterID = action.payload;
+            console.log(state.globalFilterID);
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -52,6 +58,7 @@ export const sliceStateApp = createSlice({
             state.conf = action.payload[0];
             state.header = action.payload[1];
             state.content = action.payload[2];
+            state.globalFilterID = state.header?.header.defaultFilterID;
             state.readyLoad = true;
             //console.log(state.content);
         })
@@ -62,4 +69,5 @@ export const sliceStateApp = createSlice({
     }
 });
 
+export const { updateGlobalFilter } = sliceStateApp.actions;
 export default sliceStateApp.reducer;

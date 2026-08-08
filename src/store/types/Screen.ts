@@ -12,6 +12,7 @@ export interface CardScreen {
   id: number
   title: string
   img_src: string
+  typeID: number[]
   link: string
 }
 
