@@ -2,30 +2,105 @@
     "Main_Screen": [
         {
             "id": 1,
+            "index": 0,
             "title": "Menu",
             "img_src": "none",
-            "typeID": [101,102,103],
+            "typeID": [
+                101,
+                102,
+                103
+            ],
             "link": ""
         },
         {
             "id": 2,
+            "index": -1,
             "title": "Pizza",
             "img_src": "none",
-            "typeID": [101,102],
+            "typeID": [
+                101,
+                102
+            ],
             "link": "none"
         },
         {
             "id": 3,
+            "index": 1,
             "title": "Antipati",
             "img_src": "none",
-            "typeID": [101],
+            "typeID": [
+                101
+            ],
             "link": "none"
         },
         {
             "id": 4,
+            "index": -1,
             "title": "Saladas",
             "img_src": "none",
-            "typeID": [101],
+            "typeID": [
+                101
+            ],
+            "link": "none"
+        },
+        {
+            "id": 5,
+            "index": 1,
+            "title": "Antipati",
+            "img_src": "none",
+            "typeID": [
+                101
+            ],
+            "link": "none"
+        },
+        {
+            "id": 6,
+            "index": -1,
+            "title": "Saladas",
+            "img_src": "none",
+            "typeID": [
+                101
+            ],
+            "link": "none"
+        },
+        {
+            "id": 7,
+            "index": 1,
+            "title": "Antipati",
+            "img_src": "none",
+            "typeID": [
+                101
+            ],
+            "link": "none"
+        },
+        {
+            "id": 8,
+            "index": -1,
+            "title": "Saladas",
+            "img_src": "none",
+            "typeID": [
+                101
+            ],
+            "link": "none"
+        },
+        {
+            "id": 9,
+            "index": 1,
+            "title": "Antipati",
+            "img_src": "none",
+            "typeID": [
+                101
+            ],
+            "link": "none"
+        },
+        {
+            "id": 10,
+            "index": -1,
+            "title": "Saladas",
+            "img_src": "none",
+            "typeID": [
+                101
+            ],
             "link": "none"
         }
     ],
@@ -35,16 +110,24 @@
             "data": [
                 {
                     "id": 54,
+                    "index": -1,
                     "title": "Fondente",
                     "img_src": "none",
-                    "typeID": [101,102],
+                    "typeID": [
+                        101,
+                        102
+                    ],
                     "link": "none"
                 },
                 {
                     "id": 55,
+                    "index": -1,
                     "title": "Fondente2",
                     "img_src": "none",
-                    "typeID": [101,102],
+                    "typeID": [
+                        101,
+                        102
+                    ],
                     "link": "none"
                 }
             ]
@@ -54,16 +137,24 @@
             "data": [
                 {
                     "id": 56,
-                    "title": "Fondente",
+                    "index": -1,
+                    "title": "Fondente3",
                     "img_src": "none",
-                    "typeID": [101,102],
+                    "typeID": [
+                        101,
+                        102
+                    ],
                     "link": "none"
                 },
                 {
                     "id": 57,
-                    "title": "Fondente2",
+                    "index": -1,
+                    "title": "Fondente",
                     "img_src": "none",
-                    "typeID": [101,102],
+                    "typeID": [
+                        101,
+                        102
+                    ],
                     "link": "none"
                 }
             ]

@@ -7,6 +7,7 @@ import {endpoints} from '../../../public/api/endpoints'
 
 interface IStateApp{
     readyLoad: boolean;
+    resetToHome: boolean;
     globalFilterID: number;
     conf: RootConf | null;
     header: RootHeader | null;
@@ -15,6 +16,7 @@ interface IStateApp{
 
 const initialStateApp: IStateApp = {
     readyLoad: false,
+    resetToHome: false,
     globalFilterID: -1,
     conf: null,
     header: null,
@@ -51,6 +53,12 @@ export const sliceStateApp = createSlice({
             state.globalFilterID = action.payload;
             console.log(state.globalFilterID);
         },
+        goHome: (state) => {
+            state.resetToHome = true;
+        },
+        resetStateHome: (state) => {
+            state.resetToHome = false;
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -60,7 +68,7 @@ export const sliceStateApp = createSlice({
             state.content = action.payload[2];
             state.globalFilterID = state.header?.header.defaultFilterID;
             state.readyLoad = true;
-            //console.log(state.content);
+            console.log(state.content);
         })
         .addCase(initApp.rejected, (state, action) => {
             state.readyLoad = false;
@@ -69,5 +77,5 @@ export const sliceStateApp = createSlice({
     }
 });
 
-export const { updateGlobalFilter } = sliceStateApp.actions;
+export const { updateGlobalFilter, goHome, resetStateHome } = sliceStateApp.actions;
 export default sliceStateApp.reducer;

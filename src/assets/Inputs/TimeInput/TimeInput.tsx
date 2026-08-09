@@ -7,10 +7,6 @@ interface TimerInput{
 }
 
 function TimerInput(props: TimerInput) {
-
-
-
-
     return (
         <>
             <div className="TimeInputMainConteiner">

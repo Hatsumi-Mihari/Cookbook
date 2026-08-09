@@ -1,19 +1,17 @@
 export interface RootScreen {
-  Main_Screen: CardScreen[]
-  Categoris: Categori[]
+  Main_Screen: Cards[]
+  Categoris: Categoris[]
 }
 
-export interface Categori {
+export interface Categoris {
   lable: string
-  data: CardScreen[]
+  data: Cards[]
 }
-
-export interface CardScreen {
+export interface Cards {
   id: number
+  index: number
   title: string
   img_src: string
   typeID: number[]
   link: string
 }
-
-
