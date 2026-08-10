@@ -3,7 +3,7 @@ import './App.css'
 import { useSelector, useDispatch } from 'react-redux';
 import Header from './assets/Header/Header'
 import Loader from './assets/Loader/Loader'
-import MainScreen from './assets/MainScreen/MainScreen';
+import Screen from './assets/MainScreen/Screen';
 import ModalWindowBase from './assets/ModalWindow/ModalWindowBase'
 import { useTimerManager } from './assets/Classes/TimerManager/TimerContext';
 import { useAppDispatch, useAppSelector } from './store/Hooks/useAppHooks';
@@ -62,7 +62,7 @@ function App() {
             <Loader/>
             {modalState.isOpen && <ModalWindowBase />}
             <Header></Header>
-            <MainScreen></MainScreen>
+            <Screen></Screen>
           </div>
         </>}
     </>

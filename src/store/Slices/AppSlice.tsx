@@ -1,9 +1,10 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import {type RootConf} from '../types/conf'
 import {type RootHeader} from '../types/header'
-import {type RootScreen } from '../types/Screen'
+import {type RootContent } from '../types/Content'
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {endpoints} from '../../../public/api/endpoints'
+import type { RootIndexTable } from '../types/index_table';
 
 interface IStateApp{
     readyLoad: boolean;
@@ -11,7 +12,8 @@ interface IStateApp{
     globalFilterID: number;
     conf: RootConf | null;
     header: RootHeader | null;
-    content: RootScreen | null;
+    content: RootContent | null;
+    index_table: RootIndexTable | null;
 }
 
 const initialStateApp: IStateApp = {
@@ -21,6 +23,7 @@ const initialStateApp: IStateApp = {
     conf: null,
     header: null,
     content: null,
+    index_table: null,
 }
 
 export const initApp = createAsyncThunk(
@@ -35,11 +38,16 @@ export const initApp = createAsyncThunk(
     const responseContentPage = await fetch(endpoints.CONTENT.PAGES);
     if (!responseContentPage.ok) throw new Error('Error response content pages');
 
+    const responseIndexTable = await fetch(endpoints.CONTENT.INDEX_TABLE);
+    if (!responseIndexTable.ok) throw new Error('Error response index table');
+
     
     const dataConf: RootConf = await responseConfig.json();
     const dataHeader: RootHeader = await responseContentHeader.json();
-    const dataContent: RootScreen = await responseContentPage.json();
-    return [dataConf, dataHeader, dataContent];
+    const dataContent: RootContent = await responseContentPage.json();
+    const dataIndexTable: RootIndexTable = await responseIndexTable.json();
+    console.log(dataIndexTable);
+    return [dataConf, dataHeader, dataContent, dataIndexTable];
   }
 );
 
