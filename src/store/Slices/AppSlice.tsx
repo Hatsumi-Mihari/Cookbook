@@ -75,6 +75,7 @@ export const sliceStateApp = createSlice({
             state.header = action.payload[1];
             state.content = action.payload[2];
             state.globalFilterID = state.header?.header.defaultFilterID;
+            state.index_table = action.payload[3];
             state.readyLoad = true;
             console.log(state.content);
         })
