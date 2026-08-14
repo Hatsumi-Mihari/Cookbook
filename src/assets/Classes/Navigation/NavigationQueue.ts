@@ -21,6 +21,7 @@ class NavigationQueue {
 
     public goHome() {
         this.pointerR = 0;
+        for(let i = 1; i < this.size; i++) this.queue[i] = -2;
     }
 
 
@@ -30,7 +31,7 @@ class NavigationQueue {
     }
     public goForward() {
         this.pointerR++;
-        if (this.pointerR > this.size) this.pointerR = 1;
+        if (this.pointerR > this.size) this.pointerR = this.size - 1;
     }
 
     public getQueue():Readonly<number[]> {

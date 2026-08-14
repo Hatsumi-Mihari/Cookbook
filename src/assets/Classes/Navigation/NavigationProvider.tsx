@@ -28,8 +28,6 @@ export const NavigationProvider: React.FC<NavidationProviderProps> = ({ children
     const [stateBackArrow, setStateBackArrow] = useState<boolean>(true);
     const [eventNavigation, trigerEventNavigation] = useState<boolean>(false);
 
-
-
     const goForward = () => {
         navigationQueue.current.goForward();
         trigerEventNavigation(!eventNavigation);
