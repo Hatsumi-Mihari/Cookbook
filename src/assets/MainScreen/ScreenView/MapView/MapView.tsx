@@ -11,6 +11,9 @@ interface IMapView {
 
 function MapView(props: IMapView) {
     const content = useAppSelector((state) => state.AppState.content?.items);
+    const generateSimpleId = (): string => {
+        return `${Date.now().toString(36)}-${Math.random().toString(36).substring(2, 9)}`;
+    };
     const mapD: Item | undefined = content !== undefined
         ? content[props.index_map]
         : undefined;
@@ -20,7 +23,7 @@ function MapView(props: IMapView) {
                 <div className="MapViewListWrap">
                     {mapD?.content?.list.map((item) => {
                         return <MapViewItem
-                            key={crypto.randomUUID()}
+                            key={generateSimpleId()}
                             stepId={item.stepId}
                             mapId={item.mapId}
                             lable={item.lable}
@@ -39,7 +42,7 @@ function MapView(props: IMapView) {
                             img_src={item.img_src}
                             modal_info={item.modal_info}
                             type={item.type}
-                            key={crypto.randomUUID()}
+                            key={generateSimpleId()}
                         />
                     })}
                 </div>
