@@ -3,8 +3,7 @@ import Card from './Card/Card';
 import { useAppSelector } from '../../../../store/Hooks/useAppHooks';
 
 interface ICardsView {
-    idsRender: number[],
-    callbackUpdateRedner: React.Dispatch<React.SetStateAction<number[]>>
+    idsRender: number[]
 }
 
 function CardsView(props: ICardsView) {
@@ -24,7 +23,6 @@ function CardsView(props: ICardsView) {
                                     <Card
                                         key={id}
                                         item={content?.items[itemId.index]}
-                                        handlerUpdate={props.callbackUpdateRedner}
 
                                     />
 

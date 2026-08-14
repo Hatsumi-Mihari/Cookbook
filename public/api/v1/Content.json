@@ -16,14 +16,16 @@
       "type": "map"
     }
   ],
-  "category": {
-    "id": 0,
-    "lable": "Main",
-    "cardsId": [
-      101,
-      102
-    ]
-  },
+  "category": [
+    {
+      "id": 0,
+      "lable": "Main",
+      "cardsId": [
+        101,
+        102
+      ]
+    }
+  ],
   "items": [
     {
       "id": 101,
@@ -61,7 +63,7 @@
       "id": 201,
       "type": "card",
       "childIds": [
-        500
+        501
       ],
       "lable": "null",
       "img_src": "null",

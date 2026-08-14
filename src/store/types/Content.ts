@@ -1,6 +1,13 @@
 export interface RootContent {
-  category: Category
+  idTable: TableLim[];
+  category: Category[]
   items: Item[]
+}
+
+export interface TableLim{
+  min_lim: number 
+  max_lim: number
+  type: string
 }
 
 export interface Category {

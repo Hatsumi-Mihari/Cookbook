@@ -8,32 +8,49 @@ import type { IndexTable, RootIndexTable } from '../../store/types/index_table';
 import { useNavigation } from '../Classes/Navigation/NavigationProvider';
 
 function MainScreen() {
+    const defaultValueRender = "card";
+
     const [childId, updateChildIds] = useState([0]);
-    const [lastIndexItem, setlastIndexItem] = useState(0);
-    const [typeRender, updateTypeRender] = useState("");
+    const [mapIndex, setMapIndex] = useState(0);
+    const [typeRender, updateTypeRender] = useState(defaultValueRender);
     const loaded = useAppSelector((state) => state.AppState.readyLoad);
     const content = useAppSelector((state) => state.AppState.content);
     const index = useAppSelector((state) => state.AppState.index_table);
+    const tableLimsIDs = useAppSelector((state) => state.AppState.content?.idTable)
     const navidation = useNavigation();
 
+    const limCategoryMax: number = tableLimsIDs !== undefined ? tableLimsIDs[0].max_lim : -1;
+    const limMapIdMin: number = tableLimsIDs !== undefined ? tableLimsIDs[2].min_lim : -1;
+
     useEffect(() => {
-        updateChildIds(content?.category.cardsId ? content?.category.cardsId : []);
+        updateChildIds(content?.category[0].cardsId ?? [0]);
     }, [loaded]);
 
     useEffect(() => {
-        const renderItem: IndexTable | undefined = index?.Index_table.find((item) => item.id == childId[0]);
-        if (renderItem !== undefined) {
-            updateTypeRender(renderItem.type );
-            setlastIndexItem(renderItem.index);
+        const gotoIndex: IndexTable | undefined = index?.Index_table.find((item) => item.id === navidation.getCurrentId());
+        console.log(navidation.navigationQueue.current.getCurrentValue());
+        if (
+            navidation.getCurrentId() <= limCategoryMax &&
+            limCategoryMax !== -1 &&
+            gotoIndex?.index !== undefined
+        ) {
+            updateTypeRender(gotoIndex?.type ?? defaultValueRender);
+            updateChildIds(content?.category[gotoIndex.index].cardsId ?? [0]);
+            return; 
         }
 
-        console.log(renderItem, childId);
-    }, [childId]);
+        if (gotoIndex?.index !== undefined && content?.items[gotoIndex.index].childIds !== undefined) {
+            const childID = content?.items[gotoIndex.index].childIds[0] ?? 0;
+            if (childID >= limMapIdMin) {
+                const indexL = index?.Index_table.find((item) => item.id === childID);
+                updateTypeRender(indexL?.type ?? defaultValueRender);
+                setMapIndex(indexL?.index ?? 0);
+                console.log(content?.items[indexL?.index ?? 0]);
+            } else {
+                updateTypeRender(gotoIndex.type);
+                updateChildIds(content?.items[gotoIndex.index].childIds as number[]);
 
-    useEffect(() => {
-        const gotoIndex = index?.Index_table.find((item) => item.id === navidation.getCurrentId());
-        if (gotoIndex?.index !== undefined) {
-            updateChildIds(content?.items[gotoIndex?.index].childIds);
+            }
         }
     }, [navidation.eventNavigation]);
 
@@ -41,9 +58,9 @@ function MainScreen() {
     return (
         <div className="Screen">
             <div className="ScreenConteiner">
-                {typeRender === "card" ?
-                    <CardsView callbackUpdateRedner={updateChildIds} idsRender={childId}></CardsView>
-                    : <MapView index_map={lastIndexItem}></MapView>}
+                {typeRender === defaultValueRender ?
+                    <CardsView idsRender={childId}></CardsView>
+                    : <MapView index_map={mapIndex}></MapView>}
             </div>
         </div>
     );

@@ -19,7 +19,7 @@ function Header() {
     return (
         <>
             <div className="Header_Conteiner">
-                <ButtonM3 icons={<HomeIcon />} lable={null} onClick={() => {  }}></ButtonM3>
+                <ButtonM3 icons={<HomeIcon />} lable={null} onClick={() => { navigation.goHome() }}></ButtonM3>
                 <ButtonM3
                     icons={<ArrowBack />}
                     lable={null}
@@ -33,7 +33,7 @@ function Header() {
                 <ButtonM3
                     icons={<ArrowForward />}
                     lable={null}
-                    onClick={() => { console.log("Arrow Forward") }}
+                    onClick={() => { console.log("Arrow Forward"); navigation.goForward(); }}
                     customClass={
                         navigation.stateForwardArrow ? 
                         'HeaderButtonMove HeaderButton_Active' : 

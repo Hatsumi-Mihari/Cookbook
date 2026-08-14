@@ -46,7 +46,7 @@ export const initApp = createAsyncThunk(
     const dataHeader: RootHeader = await responseContentHeader.json();
     const dataContent: RootContent = await responseContentPage.json();
     const dataIndexTable: RootIndexTable = await responseIndexTable.json();
-    console.log(dataIndexTable);
+    console.log(dataContent);
     return [dataConf, dataHeader, dataContent, dataIndexTable];
   }
 );

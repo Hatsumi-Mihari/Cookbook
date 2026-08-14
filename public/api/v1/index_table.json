@@ -1,6 +1,12 @@
 {
     "Index_table": [
     {
+      "id": 0,
+      "index": 0,
+      "lable": "null",
+      "type": "card"
+    },
+    {
       "id": 101,
       "index": 0,
       "lable": "null",
@@ -27,7 +33,7 @@
     {
       "id": 500,
       "index": 4,
-      "lable": "null",
+      "lable": "null 90",
       "type": "map"
     }
   ]

@@ -8,6 +8,7 @@ interface NavigationCtxType {
     eventNavigation: boolean;
     goBack: () => void,
     goForward: () => void,
+    goHome: () => void,
     push: (value: number) => void ,
     getCurrentId: () => number,
 }
@@ -30,7 +31,7 @@ export const NavigationProvider: React.FC<NavidationProviderProps> = ({ children
 
 
     const goForward = () => {
-         navigationQueue.current.goForward();
+        navigationQueue.current.goForward();
         trigerEventNavigation(!eventNavigation);
     }
 
@@ -39,8 +40,15 @@ export const NavigationProvider: React.FC<NavidationProviderProps> = ({ children
         trigerEventNavigation(!eventNavigation);
     }
 
+    const goHome = () => {
+        navigationQueue.current.goHome();
+        console.log()
+        trigerEventNavigation(!eventNavigation);
+    }
+
     const push = (value: number) => {
         navigationQueue.current.push(value);
+        trigerEventNavigation(!eventNavigation);
     }
 
     const getCurrentId = () => {
@@ -54,6 +62,7 @@ export const NavigationProvider: React.FC<NavidationProviderProps> = ({ children
         eventNavigation,
         goBack,
         goForward,
+        goHome,
         push,
         getCurrentId
     };

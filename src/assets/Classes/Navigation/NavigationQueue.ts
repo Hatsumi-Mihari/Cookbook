@@ -1,35 +1,47 @@
 class NavigationQueue {
     private queue: number[] = [];
     private readonly size: number = 10;
-    private pointer: number = 0;
+    private pointerW: number = 1;
+    private pointerR: number = 1;
 
     constructor(){
         for(let i = 0; i < this.size; i++) this.queue[i] = -2;
+        this.queue[0] = 0;
         console.log(1223);
         console.log(this.queue);
     }
 
     public push(value: number) { 
-        if (this.pointer >= this.size) this.pointer = 0;
-        this.queue[this.pointer] = value;
-        console.log(this.queue, this.pointer);
-        this.pointer++;
-        
+        if (this.pointerW >= this.size) this.pointerW = 1;
+        this.queue[this.pointerW] = value;
+        console.log(this.queue, this.pointerW);
+        this.pointerW++;
+        this.pointerR = this.pointerW;
     };
 
-    public goBack() { 
-        this.pointer--;
-        if (this.pointer < 0) this.pointer = 0;
-        console.log(this.queue, this.pointer);
+    public goHome() {
+        this.pointerR = 0;
     }
-    public goForward() { }
+
+
+    public goBack() { 
+        this.pointerR--;
+        if (this.pointerR < 0) this.pointerR = 1;
+    }
+    public goForward() {
+        this.pointerR++;
+        if (this.pointerR > this.size) this.pointerR = 1;
+    }
 
     public getQueue():Readonly<number[]> {
         return this.queue;
     }
 
     public getCurrentValue(): number{
-        return this.queue[this.pointer];
+        if (this.pointerR-1 < 0) {
+            this.pointerR = 1;
+        }
+        return this.queue[this.pointerR-1];
     }
 }
 
