@@ -4,30 +4,41 @@ import HeaderButtonTimer from './HeaderButtonTimer';
 import PlaceHolderIcon from '../icons/asterisk_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react';
 import AlarmIcon from '../icons/alarm_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react';
 import HomeIcon from '../icons/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react';
+import ArrowBack from '../icons/arrow_back_ios_new_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react';
+import ArrowForward from '../icons/arrow_forward_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react';
 import { useDispatch, useSelector } from 'react-redux';
 import {memo} from 'react';
 import HeaderDropDownTitle from './HeaderDropDownTitle'
-import { goHome } from '../../store/Slices/AppSlice';
+import { useNavigation } from '../Classes/Navigation/NavigationProvider';
 
 
 function Header() {
     const dispatch = useDispatch();
+    const navigation = useNavigation();
 
     return (
         <>
             <div className="Header_Conteiner">
-                <ButtonM3 icons={<HomeIcon />} lable={null} onClick={() => { dispatch(goHome()) }}></ButtonM3>
+                <ButtonM3 icons={<HomeIcon />} lable={null} onClick={() => {  }}></ButtonM3>
                 <ButtonM3
-                    icons={<PlaceHolderIcon />}
+                    icons={<ArrowBack />}
                     lable={null}
-                    onClick={() => { console.log("Arrow Back") }}
-                    customClass='HeaderButtonMove HeaderButton_NoneActive'></ButtonM3>
+                    onClick={() => { console.log("Arrow Back"); navigation.goBack()}}
+                    customClass={
+                        navigation.stateBackArrow ? 
+                        'HeaderButtonMove HeaderButton_Active' : 
+                        'HeaderButtonMove HeaderButton_NoneActive'
+                        }></ButtonM3>
 
                 <ButtonM3
-                    icons={<PlaceHolderIcon />}
+                    icons={<ArrowForward />}
                     lable={null}
                     onClick={() => { console.log("Arrow Forward") }}
-                    customClass='HeaderButtonMove HeaderButton_Active'></ButtonM3>
+                    customClass={
+                        navigation.stateForwardArrow ? 
+                        'HeaderButtonMove HeaderButton_Active' : 
+                        'HeaderButtonMove HeaderButton_NoneActive'
+                        }></ButtonM3>
 
                 <ButtonM3
                     icons={<PlaceHolderIcon />}

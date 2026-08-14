@@ -3,22 +3,32 @@
     {
       "id": 101,
       "index": 0,
-      "lable": "null"
+      "lable": "null",
+      "type": "card"
     },
     {
       "id": 102,
       "index": 1,
-      "lable": "null"
+      "lable": "null",
+      "type": "card"
+    },
+    {
+      "id": 200,
+      "index": 2,
+      "lable": "null",
+      "type": "card"
     },
     {
       "id": 201,
-      "index": 2,
-      "lable": "null"
+      "index": 3,
+      "lable": "null",
+      "type": "card"
     },
     {
       "id": 500,
-      "index": 3,
-      "lable": "null"
+      "index": 4,
+      "lable": "null",
+      "type": "map"
     }
   ]
 }

@@ -1,92 +1,40 @@
 import './CardsView.scss'
 import Card from './Card/Card';
+import { useAppSelector } from '../../../../store/Hooks/useAppHooks';
 
-function CardsView() {
+interface ICardsView {
+    idsRender: number[],
+    callbackUpdateRedner: React.Dispatch<React.SetStateAction<number[]>>
+}
+
+function CardsView(props: ICardsView) {
+    const content = useAppSelector((state) => state.AppState.content);
+    const loaded = useAppSelector((state) => state.AppState.readyLoad);
+    const index = useAppSelector((state) => state.AppState.index_table);
+
     return (
-        <div className="CradsViewMain">
-            <div className="CradsViewConteiner">
-                <Card
-                    id={0}
-                    type="card"
-                    childIds={[0, 0]}
-                    lable='null'
-                    img_src='./src/assets/icons/photo_48dp_434343_FILL0_wght400_GRAD0_opsz48.svg'
+        <>
+            {loaded ? <>
+                <div className="CradsViewMain">
+                    <div className="CradsViewConteiner">
+                        {props.idsRender.map((id) => {
+                            const itemId = index?.Index_table.find((item) => item.id === id);
+                            return itemId?.index !== undefined && content?.items[itemId.index] !== undefined ?
+                                
+                                    <Card
+                                        key={id}
+                                        item={content?.items[itemId.index]}
+                                        handlerUpdate={props.callbackUpdateRedner}
 
-                />
-                <Card
-                    id={0}
-                    type="card"
-                    childIds={[0, 0]}
-                    lable='null'
-                    img_src='./src/assets/icons/photo_48dp_434343_FILL0_wght400_GRAD0_opsz48.svg'
+                                    />
 
-                />
-                <Card
-                    id={0}
-                    type="card"
-                    childIds={[0, 0]}
-                    lable='null'
-                    img_src='./src/assets/icons/photo_48dp_434343_FILL0_wght400_GRAD0_opsz48.svg'
+                                 : <>undefined cards view ID = {id}</>
+                        })}
+                    </div>
+                </div>
+            </> : <></>}
+        </>
 
-                />
-                <Card
-                    id={0}
-                    type="card"
-                    childIds={[0, 0]}
-                    lable='null'
-                    img_src='./src/assets/icons/photo_48dp_434343_FILL0_wght400_GRAD0_opsz48.svg'
-
-                />
-                <Card
-                    id={0}
-                    type="card"
-                    childIds={[0, 0]}
-                    lable='null'
-                    img_src='./src/assets/icons/photo_48dp_434343_FILL0_wght400_GRAD0_opsz48.svg'
-
-                />
-                <Card
-                    id={0}
-                    type="card"
-                    childIds={[0, 0]}
-                    lable='null'
-                    img_src='./src/assets/icons/photo_48dp_434343_FILL0_wght400_GRAD0_opsz48.svg'
-
-                />
-                                <Card
-                    id={0}
-                    type="card"
-                    childIds={[0, 0]}
-                    lable='null'
-                    img_src='./src/assets/icons/photo_48dp_434343_FILL0_wght400_GRAD0_opsz48.svg'
-
-                />
-                                <Card
-                    id={0}
-                    type="card"
-                    childIds={[0, 0]}
-                    lable='null'
-                    img_src='./src/assets/icons/photo_48dp_434343_FILL0_wght400_GRAD0_opsz48.svg'
-
-                />
-                                <Card
-                    id={0}
-                    type="card"
-                    childIds={[0, 0]}
-                    lable='null'
-                    img_src='./src/assets/icons/photo_48dp_434343_FILL0_wght400_GRAD0_opsz48.svg'
-
-                />
-                                <Card
-                    id={0}
-                    type="card"
-                    childIds={[0, 0]}
-                    lable='null'
-                    img_src='./src/assets/icons/photo_48dp_434343_FILL0_wght400_GRAD0_opsz48.svg'
-
-                />
-            </div>
-        </div>
     );
 }
 

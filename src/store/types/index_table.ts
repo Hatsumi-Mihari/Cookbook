@@ -6,4 +6,5 @@ export interface IndexTable {
   id: number
   index: number
   lable: string
+  type: string
 }

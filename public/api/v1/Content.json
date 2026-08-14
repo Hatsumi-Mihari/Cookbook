@@ -32,7 +32,7 @@
         200,
         201
       ],
-      "lable": "null",
+      "lable": "null 101",
       "img_src": "null",
       "link": "null"
     },
@@ -43,6 +43,16 @@
         202,
         203
       ],
+      "lable": "null 102",
+      "img_src": "null",
+      "link": "null"
+    },
+    {
+      "id": 200,
+      "type": "card",
+      "childIds": [
+        500
+      ],
       "lable": "null",
       "img_src": "null",
       "link": "null"
@@ -51,15 +61,14 @@
       "id": 201,
       "type": "card",
       "childIds": [
-        501,
-        502
+        500
       ],
       "lable": "null",
       "img_src": "null",
       "link": "null"
     },
     {
-      "id": 501,
+      "id": 500,
       "type": "map",
       "lable": "null",
       "img_src": "null",
@@ -91,12 +100,14 @@
           {
             "stepID": 1,
             "img_src": "null",
-            "modal_info": "null"
+            "modal_info": "null",
+            "type": 1
           },
           {
             "stepID": 2,
             "img_src": "null",
-            "modal_info": "null"
+            "modal_info": "null",
+            "type": 1
           }
         ]
       }

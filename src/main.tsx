@@ -5,15 +5,18 @@ import './index.css'
 import App from './App.tsx'
 import { store } from './store/Store.tsx'
 import { TimerProvider } from './assets/Classes/TimerManager/TimerContext.tsx';
+import { NavigationProvider } from './assets/Classes/Navigation/NavigationProvider.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <TimerProvider>
-        <Profiler id="App" onRender={() => { }}>
-          <App />
-        </Profiler>
-      </TimerProvider>
+      <NavigationProvider>
+        <TimerProvider>
+          <Profiler id="App" onRender={() => { }}>
+            <App />
+          </Profiler>
+        </TimerProvider>
+      </NavigationProvider>
     </Provider>
   </StrictMode>,
 )
