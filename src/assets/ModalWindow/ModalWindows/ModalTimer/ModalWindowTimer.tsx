@@ -6,13 +6,9 @@ import ButtonM3_grup from '../../../ButtonM3/ButtonM3_grup';
 import PlacehodelIcon from '../../../icons/asterisk_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react';
 import './ModalWindowTimer.scss'
 import { useTimerManager, useTimer, useTimerPull } from '../../../Classes/TimerManager/TimerContext';
-import type { TimerEngine, Timer } from '../../../Classes/TimerManager/TimerMenager';
 
-interface IModalTimer {
 
-}
-
-function ModalWindowTimer(props: IModalTimer) {
+function ModalWindowTimer() {
     const timerManager = useTimerManager();
     const timerPull = useTimerPull();
     const [min, sec] = [useRef<HTMLInputElement>(null), useRef<HTMLInputElement>(null)];

@@ -4,9 +4,12 @@ import { useTimerManager, useTimer } from '../Classes/TimerManager/TimerContext'
 import { openModalWindow } from '../../store/Slices/ModalSlice';
 import { useDispatch } from 'react-redux';
 import {memo} from 'react'
+import { useModalWindowCtx } from '../ModalWindow/ModalWindowProvider';
+import ModalWindowTimer from '../ModalWindow/ModalWindows/ModalTimer/ModalWindowTimer';
 
 function HeaderButtonTimer() {
     const timerManager = useTimerManager();
+    const modaleCtx = useModalWindowCtx();
     timerManager.setPinTimerDefult(0);
     const timer = useTimer(timerManager.getIdPinTimer());
     const dispatch = useDispatch();
@@ -16,13 +19,8 @@ function HeaderButtonTimer() {
             icons={<AlarmIcon />}
             lable={timerManager.formatTime(timer?.remainingS)}
             onClick={() => {
-                dispatch(openModalWindow({
-                    type: 'Timer',
-                    props: {
-                        title: 'Timer',
-                        props: {}
-                    }
-                }));
+                modaleCtx.builder({label: <>Timer</>, children: <ModalWindowTimer></ModalWindowTimer>});
+                modaleCtx.openModal();
             }}
             customClass='HeaderButtonOutline HeaderTimer'></ButtonM3>
     </>

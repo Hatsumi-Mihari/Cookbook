@@ -1,43 +1,41 @@
 import './ModalWindowBase.scss'
-import { useEffect, useState, memo, useCallback, useMemo } from 'react';
+import React, { useEffect, useState, memo, useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModalWindow } from '../../store/Slices/ModalSlice'
 import { TypesModal } from './ModalWindows/ModalTimer/ModalState'
 import ButtonM3 from '../ButtonM3/ButtonM3';
-import CloseIcon from '../icons/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react'
+import CloseIcon from '../icons/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react';
+import { useModalWindowCtx } from './ModalWindowProvider';
 
 
 function ModalWindowsBase() {
     const memoCloseIcon = useMemo(() => {
         return <CloseIcon />;
     }, []);
-    const dispatch = useDispatch();
-    const stateModal = useSelector((state) => state.ModalState);
-    useEffect(() => {
-        console.log(stateModal);
-    },[])
+    const ModalCtx = useModalWindowCtx();
+
     return (
         <>
-            <div className="ModalWindowCloseCollision"  onClick={() => {dispatch(closeModalWindow())}}></div>
+            <div className="ModalWindowCloseCollision"  onClick={() => {ModalCtx.closeModal()}}></div>
             <div className="ModalWindowBase">
                 <div className="ModalWindowBaseControl">
                     <div className="ModalWindowBaseLable">
-                        {stateModal.modalProps?.title || "null"}
+                        {ModalCtx.content.label}
                     </div>
                     <ButtonM3
                         lable={null}
                         icons={memoCloseIcon}
-                        onClick={() => {dispatch(closeModalWindow())}}
+                        onClick={() => {ModalCtx.closeModal()}}
                         customClass='ModalWindowBaseClose' 
                         />
                 </div>
                 <div className="ModalWindowContent">
-                    {TypesModal[stateModal.modalType](stateModal.modalProps?.props)}
+                    {ModalCtx.content.children}
                 </div>
             </div>
 
         </>
-    );ц
+    );
 }
 
 export default ModalWindowsBase;

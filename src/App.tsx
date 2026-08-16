@@ -22,7 +22,6 @@ function App() {
   const testPage: boolean = false;
 
   const timerManager = useTimerManager();
-  const modalState = useSelector((state) => state.ModalState);
   const appState = useAppSelector((state) => state.AppState);
   const dispatcher = useAppDispatch();
 
@@ -42,9 +41,6 @@ function App() {
 
   }, [appState.readyLoad]);
 
-  useEffect(() => {
-    console.log(modalState);
-  }, [modalState])
 
   return (
     <>
@@ -60,7 +56,6 @@ function App() {
         <>
           <div className="MainPage">
             <Loader/>
-            {modalState.isOpen && <ModalWindowBase />}
             <Header></Header>
             <Screen></Screen>
           </div>
