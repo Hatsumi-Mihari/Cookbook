@@ -6,15 +6,20 @@ import AlarmIcon from '../icons/alarm_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg
 import HomeIcon from '../icons/home_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react';
 import ArrowBack from '../icons/arrow_back_ios_new_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react';
 import ArrowForward from '../icons/arrow_forward_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react';
+import SearchIcon from '../icons/search_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24 (1).svg?react';
 import { useDispatch, useSelector } from 'react-redux';
 import { memo } from 'react';
 import HeaderDropDownTitle from './HeaderDropDownTitle'
 import { useNavigation } from '../Classes/Navigation/NavigationProvider';
+import { useModalWindowCtx } from '../ModalWindow/ModalWindowProvider';
+import ModalSearch from '../ModalWindow/ModalWindows/ModalSearch/ModalSearch';
+import ModalSeachLine from '../ModalWindow/ModalWindows/ModalSearch/ModalSeacrhLine';
 
 
 function Header() {
     const dispatch = useDispatch();
     const navigation = useNavigation();
+    const modalCtx = useModalWindowCtx();
 
     return (
         <>
@@ -44,9 +49,13 @@ function Header() {
 
 
                 <ButtonM3
-                    icons={<PlaceHolderIcon />}
+                    icons={<SearchIcon />}
                     lable={null}
-                    onClick={() => { console.log("Search Modal") }}
+                    onClick={() => {
+                        console.log("Search Modal");
+                        modalCtx.builder({ label: <ModalSeachLine></ModalSeachLine>, children: <ModalSearch></ModalSearch>, class: "ModalSearchConteiner"});
+                       
+                    }}
                     customClass='HeaderButtonOutline'></ButtonM3>
 
                 <HeaderButtonTimer></HeaderButtonTimer>

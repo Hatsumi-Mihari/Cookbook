@@ -14,8 +14,8 @@ function ModalWindowsBase() {
 
     return (
         <>
-            <div className="ModalWindowCloseCollision"  onClick={() => {ModalCtx.closeModal()}}></div>
-            <div className="ModalWindowBase">
+            <div className="ModalWindowCloseCollision" onClick={() => { ModalCtx.closeModal() }}></div>
+            <div className={"ModalWindowBase " + ModalCtx.content.class}>
                 <div className="ModalWindowBaseControl">
                     <div className="ModalWindowBaseLable">
                         {ModalCtx.content.label}
@@ -23,9 +23,9 @@ function ModalWindowsBase() {
                     <ButtonM3
                         lable={null}
                         icons={memoCloseIcon}
-                        onClick={() => {ModalCtx.closeModal()}}
-                        customClass='ModalWindowBaseClose' 
-                        />
+                        onClick={() => { ModalCtx.closeModal() }}
+                        customClass='ModalWindowBaseClose'
+                    />
                 </div>
                 <div className="ModalWindowContent">
                     {ModalCtx.content.children}

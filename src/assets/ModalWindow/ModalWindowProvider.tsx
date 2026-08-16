@@ -12,25 +12,30 @@ interface IModalWindowBaseCtx {
 interface IModalWindowContent {
     children: React.ReactNode,
     label: React.ReactNode,
+    class?: string,
 }
 
 
 const ModalWindowBaseCtx = createContext<IModalWindowBaseCtx | undefined>(undefined);
 
 export const ModalWindowProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const [isOpenModal, setIsOpen] = useState(true);
+    const [isOpenModal, setIsOpen] = useState(false);
     const [contentModal, setContentModal] = useState<React.ReactNode>(<></>);
     const [contentModalLable, setContentLable] = useState<React.ReactNode>(<>.</>);
+    const [customClass, setClass] = useState<string>("")
 
     const openM = () => setIsOpen(true);
     const closeM = () => {
         setContentModal(<></>);
         setContentLable(<></>);
+        setClass("");
         setIsOpen(false);
     }
     const builderM = (content: IModalWindowContent) => {
         setContentModal(content.children);
         setContentLable(content.label);
+        setClass(content.class ?? "")
+        setIsOpen(true);
     }
 
     const value = {
@@ -40,7 +45,8 @@ export const ModalWindowProvider: React.FC<{ children: React.ReactNode }> = ({ c
         builder: (content: IModalWindowContent) => builderM(content),
         content: {
             children: contentModal,
-            label: contentModalLable
+            label: contentModalLable,
+            class: customClass,
         }
     }
 
