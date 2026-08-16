@@ -1,8 +1,6 @@
 import AlarmIcon from '../icons/alarm_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react';
 import ButtonM3 from '../ButtonM3/ButtonM3';
 import { useTimerManager, useTimer } from '../Classes/TimerManager/TimerContext';
-import { openModalWindow } from '../../store/Slices/ModalSlice';
-import { useDispatch } from 'react-redux';
 import {memo} from 'react'
 import { useModalWindowCtx } from '../ModalWindow/ModalWindowProvider';
 import ModalWindowTimer from '../ModalWindow/ModalWindows/ModalTimer/ModalWindowTimer';
@@ -12,7 +10,6 @@ function HeaderButtonTimer() {
     const modaleCtx = useModalWindowCtx();
     timerManager.setPinTimerDefult(0);
     const timer = useTimer(timerManager.getIdPinTimer());
-    const dispatch = useDispatch();
 
     return <>
         <ButtonM3

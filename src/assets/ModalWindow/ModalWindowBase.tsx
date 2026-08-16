@@ -1,8 +1,6 @@
 import './ModalWindowBase.scss'
 import React, { useEffect, useState, memo, useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeModalWindow } from '../../store/Slices/ModalSlice'
-import { TypesModal } from './ModalWindows/ModalTimer/ModalState'
 import ButtonM3 from '../ButtonM3/ButtonM3';
 import CloseIcon from '../icons/close_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg?react';
 import { useModalWindowCtx } from './ModalWindowProvider';
