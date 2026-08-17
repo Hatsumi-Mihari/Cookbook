@@ -1,0 +1,16 @@
+{
+    "SearchIndex":[
+        {
+            "index_items": 0,
+            "is_category": true,
+            "lable": "Main",
+            "img_src": ""
+        },
+        {
+            "index_items": 0,
+            "is_category": false,
+            "lable": "Main",
+            "img_src": ""
+        }
+    ]
+}

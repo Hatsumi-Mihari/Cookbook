@@ -1,31 +1,56 @@
-
 @keyframes spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-.LoaderScreen{
+.LoaderScreen {
+  display: grid;
+  position: fixed;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-surface);
+  align-items: center;
+  justify-items: center;
+
+  .LoaderScreenProgressIcon {
     display: grid;
-    position: fixed;
-    z-index: 100;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--color-surface);
-    align-items: center;
-    justify-items: center;
-    .LoaderScreenProgressIcon{
-        display: grid;
-        animation: spin 1s ease-in-out infinite;
-        width: 64px;
-        height: 64px;
-        svg{
-            width: 64px;
-            height: 64px;
-            fill: var(--color-on-surface);
-        }
+    animation: spin 1s ease-in-out infinite;
+    width: 64px;
+    height: 64px;
+
+    svg {
+      width: 64px;
+      height: 64px;
+      fill: var(--color-on-surface);
     }
+  }
+}
+
+.LoadSpiner {
+  display: grid;
+  position: relative;
+  z-index: 100;
+  align-items: center;
+  justify-items: center;
+  width: 100%;
+  height: 100%;
+
+  .LoaderScreenProgressIcon {
+    display: grid;
+    animation: spin 1s ease-in-out infinite;
+    width: 64px;
+    height: 64px;
+
+    svg {
+      width: 64px;
+      height: 64px;
+      fill: var(--color-outline);
+    }
+  }
 }

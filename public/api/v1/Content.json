@@ -22,7 +22,15 @@
       "lable": "Main",
       "cardsId": [
         101,
-        102
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110
       ]
     }
   ],
@@ -34,8 +42,8 @@
         200,
         201
       ],
-      "lable": "null 101",
-      "img_src": "null",
+      "lable": "Pizza",
+      "img_src": "./src/resurses/categorys/pic1.jpg",
       "link": "null"
     },
     {
@@ -45,8 +53,96 @@
         202,
         203
       ],
-      "lable": "null 102",
-      "img_src": "null",
+      "lable": "Sushi",
+      "img_src": "./src/resurses/categorys/pic2.jpg",
+      "link": "null"
+    },
+    {
+      "id": 103,
+      "type": "card",
+      "childIds": [
+        202,
+        203
+      ],
+      "lable": "Paste",
+      "img_src": "./src/resurses/categorys/pic3.jpg",
+      "link": "null"
+    },
+    {
+      "id": 104,
+      "type": "card",
+      "childIds": [
+        202,
+        203
+      ],
+      "lable": "Burger",
+      "img_src": "./src/resurses/categorys/pic4.jpg",
+      "link": "null"
+    },
+    {
+      "id": 105,
+      "type": "card",
+      "childIds": [
+        202,
+        203
+      ],
+      "lable": "Salads",
+      "img_src": "./src/resurses/categorys/pic0.jpg",
+      "link": "null"
+    },
+    {
+      "id": 106,
+      "type": "card",
+      "childIds": [
+        202,
+        203
+      ],
+      "lable": "Baked",
+      "img_src": "./src/resurses/categorys/pic5.jpg",
+      "link": "null"
+    },
+    {
+      "id": 107,
+      "type": "card",
+      "childIds": [
+        202,
+        203
+      ],
+      "lable": "Soups",
+      "img_src": "./src/resurses/categorys/pic6.jpg",
+      "link": "null"
+    },
+    {
+      "id": 108,
+      "type": "card",
+      "childIds": [
+        202,
+        203
+      ],
+      "lable": "Barbecue",
+      "img_src": "./src/resurses/categorys/pic7.jpg",
+      "link": "null"
+    },
+    {
+      "id": 109,
+      "type": "card",
+      "childIds": [
+        202,
+        203
+      ],
+      "lable": "Beverages",
+      "img_src": "./src/resurses/categorys/pic8.jpg",
+      "link": "null"
+    },
+    {
+      "id": 110,
+      "type": "card",
+      "childIds": [
+        202,
+        203
+      ],
+      "lable": "Desserts",
+      "img_src": "./src/resurses/categorys/pic9.jpg",
       "link": "null"
     },
     {
@@ -55,8 +151,8 @@
       "childIds": [
         500
       ],
-      "lable": "null",
-      "img_src": "null",
+      "lable": "Piperoni",
+      "img_src": "./src/resurses/pizzas/piperoni_preview.jpg",
       "link": "null"
     },
     {
@@ -65,8 +161,8 @@
       "childIds": [
         501
       ],
-      "lable": "null",
-      "img_src": "null",
+      "lable": "Margarita",
+      "img_src": "./src/resurses/pizzas/margarita_preview.jpg",
       "link": "null"
     },
     {
@@ -79,10 +175,19 @@
           {
             "stepId": 0,
             "mapId": 502,
-            "lable": "null",
+            "lable": "Dough",
             "weight": [
-              200,
-              300
+              250
+            ],
+            "unit": "gr",
+            "img_src": "./src/resurses/pizzas/Ingredients/dough.png"
+          },
+          {
+            "stepId": 1,
+            "mapId": -1,
+            "lable": "Pepperoni",
+            "weight": [
+              80
             ],
             "unit": "gr",
             "img_src": "null"
@@ -90,9 +195,20 @@
           {
             "stepId": 1,
             "mapId": -1,
-            "lable": "null",
+            "lable": "Mozzarella",
             "weight": [
-              200
+              120,
+              130
+            ],
+            "unit": "gr",
+            "img_src": "null"
+          },
+          {
+            "stepId": 1,
+            "mapId": -1,
+            "lable": "Tomato Sauce",
+            "weight": [
+              65
             ],
             "unit": "gr",
             "img_src": "null"

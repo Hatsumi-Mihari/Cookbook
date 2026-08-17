@@ -19,7 +19,7 @@ function Card(props: CardItem) {
             <div className="CardImg">
                 <img src={props.item.img_src} />
             </div>
-            <div className="CardTitle">{props.item.lable} {props.item.id}</div>
+            <div className="CardTitle">{props.item.lable}</div>
         </div>
     );
 }

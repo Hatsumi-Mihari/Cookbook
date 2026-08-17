@@ -1,35 +1,48 @@
 import './ModalSearch.scss'
 import ModalSeachLine from './ModalSeacrhLine';
-import { useModalInputCtx } from './ModalSearchCtx'
+import { useGetResultSearch } from './ModalSearchCtx'
 import { useRef } from 'react'
+import LoadSpiner from '../../../Loader/LoadSpiner';
 
 function ModalSearch() {
-    const ctxInput = useModalInputCtx();
+    const resultSearch = useGetResultSearch();
 
     return (
         <>
-            <div className="ModalSearchList">
-                <div className="ModalSearchListElem">
-                    <div className="ModalSearchListElemImg">
-                        <div></div>
-                    </div>
-                    <div className="ModalSearchListElemData">
-                        <p>{ctxInput.getValue()}</p>
-                        <p>123</p>
-                        <p>123</p>
-                    </div>
-                </div>
-                <div className="ModalSearchListElem">
-                    <div className="ModalSearchListElemImg">
-                        <div></div>
-                    </div>
-                    <div className="ModalSearchListElemData">
-                        <p>Title</p>
-                        <p>123</p>
-                        <p>123</p>
-                    </div>
-                </div>
-            </div>
+            {resultSearch.inputEvent === true ?
+                <div className="ModalSearchList">
+
+                    {
+                        resultSearch.isLoaded ?
+                            <>
+                                <div className="ModalSearchListElem">
+                                    <div className="ModalSearchListElemImg">
+                                        <div></div>
+                                    </div>
+                                    <div className="ModalSearchListElemData">
+                                        <p>{resultSearch.value}</p>
+                                        <p>{resultSearch.isLoaded}</p>
+                                        <p>123</p>
+                                    </div>
+                                </div>
+                                <div className="ModalSearchListElem">
+                                    <div className="ModalSearchListElemImg">
+                                        <div></div>
+                                    </div>
+                                    <div className="ModalSearchListElemData">
+                                        <p>Title</p>
+                                        <p>123</p>
+                                        <p>123</p>
+                                    </div>
+                                </div>
+                            </>
+                            : <LoadSpiner></LoadSpiner>
+                    }
+
+
+                </div> : <></>
+            }
+
         </>
     );
 }

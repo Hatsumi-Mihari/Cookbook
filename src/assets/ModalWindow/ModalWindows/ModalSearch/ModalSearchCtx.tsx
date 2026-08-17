@@ -1,24 +1,52 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-import { ModalSerchInput } from './ModalSearchClass';
+import { ctxInput, ModalSerchInput } from './ModalSearchClass';
 
 
-const ctxInput = new ModalSerchInput();
 const ModalInputCtx = createContext<ModalSerchInput>(ctxInput);
 
 
-export const useModalInputCtx= () => {
+export const useInputCtx = () => {
     return useContext(ModalInputCtx)
 };
 
-export const useModalInputOnChange = () => {
-    const [value] = useState<string>(ctxInput.getValue());
-    const [evnt, tickEvent] = useState<boolean>(false);
+export const useGetResultSearch = () => {
+    const [value, setValue] = useState('');
+    const [inputEvent, updateStateInput] = useState(false)
+    const [isLoaded, updateLoaded] = useState(false);
+    const [loadedData, updateLoadedData] = useState<number[]>([])
 
     useEffect(() => {
-        tickEvent(!evnt);
-    }, []);
+        const unsubscribe = ctxInput.subscribe((val) => {
+            setValue(val);
+            updateLoaded(false);
+            if (val === '') updateStateInput(false);
+            else updateStateInput(true);
+        });
 
-    return value;
+        return () => unsubscribe();
+    }, [])
+
+    useEffect(() => {
+        const fetchFakeData = async () => {
+
+            // Имитируем задержку через Promise + setTimeout
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+            updateLoadedData([0]);
+            console.log([`promise long load: ${value}`]);
+            
+        };
+
+        fetchFakeData();
+
+    }, [inputEvent]);
+
+    useEffect(() => {
+        console.log(loadedData);
+        updateLoaded(true);
+    }, [loadedData]);
+
+
+    return { value, inputEvent, isLoaded };
 }
 
 
