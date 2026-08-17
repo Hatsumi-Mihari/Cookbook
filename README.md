@@ -1,4 +1,4 @@
-# E-book of recipes (Based on my experience working in the kitchen)
+# E-book of recipes (Based on my experience working in the kitchen)(The latest changes in the dev branch)
 This is an e-book of recipes; the main slogan of this project is “Every recipe is always at your fingertips.”
 <img width="1279" height="857" alt="Screenshot 2026-08-18 at 00 59 06" src="https://github.com/user-attachments/assets/1ebff6ec-d5fa-450a-af37-726e19ccdc10" />
 
