@@ -174,7 +174,7 @@
         "list": [
           {
             "stepId": 0,
-            "mapId": 502,
+            "mapId": 501,
             "lable": "Dough",
             "weight": [
               250
@@ -190,18 +190,20 @@
               80
             ],
             "unit": "gr",
-            "img_src": "null"
+            "img_src": "./src/resurses/pizzas/Ingredients/piperoni.png"
           },
           {
             "stepId": 1,
             "mapId": -1,
             "lable": "Mozzarella",
             "weight": [
+              50,
+              80,
               120,
               130
             ],
             "unit": "gr",
-            "img_src": "null"
+            "img_src": "./src/resurses/pizzas/Ingredients/mozzarella.png"
           },
           {
             "stepId": 1,
@@ -211,7 +213,41 @@
               65
             ],
             "unit": "gr",
-            "img_src": "null"
+            "img_src": "./src/resurses/pizzas/Ingredients/Tomate_Souce.png"
+          }
+        ],
+        "map": [
+          {
+            "stepID": 1,
+            "img_src": "null",
+            "modal_info": "null",
+            "type": 1
+          },
+          {
+            "stepID": 2,
+            "img_src": "null",
+            "modal_info": "null",
+            "type": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": 501,
+      "type": "map",
+      "lable": "null",
+      "img_src": "null",
+      "content": {
+        "list": [
+          {
+            "stepId": 0,
+            "mapId": 502,
+            "lable": "Dough12",
+            "weight": [
+              250
+            ],
+            "unit": "gr",
+            "img_src": "./src/resurses/pizzas/Ingredients/dough.png"
           }
         ],
         "map": [

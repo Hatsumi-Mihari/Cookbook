@@ -28,7 +28,6 @@ function MainScreen() {
 
     useEffect(() => {
         const gotoIndex: IndexTable | undefined = index?.Index_table.find((item) => item.id === navidation.getCurrentId());
-        console.log(navidation.navigationQueue.current.getCurrentValue());
         if (
             navidation.getCurrentId() <= limCategoryMax &&
             limCategoryMax !== -1 &&
@@ -40,17 +39,23 @@ function MainScreen() {
         }
 
         if (gotoIndex?.index !== undefined && content?.items[gotoIndex.index].childIds !== undefined) {
+            
             const childID = content?.items[gotoIndex.index].childIds[0] ?? 0;
             if (childID >= limMapIdMin) {
                 const indexL = index?.Index_table.find((item) => item.id === childID);
                 updateTypeRender(indexL?.type ?? defaultValueRender);
                 setMapIndex(indexL?.index ?? 0);
-                console.log(content?.items[indexL?.index ?? 0]);
             } else {
                 updateTypeRender(gotoIndex.type);
                 updateChildIds(content?.items[gotoIndex.index].childIds as number[]);
 
             }
+        }
+
+        if (gotoIndex?.index !== undefined && content?.items[gotoIndex.index].id > limMapIdMin && content?.items[gotoIndex.index].childIds === undefined){
+            
+            updateTypeRender(gotoIndex?.type ?? defaultValueRender);
+            setMapIndex(gotoIndex?.index ?? 0);
         }
     }, [navidation.eventNavigation]);
 
