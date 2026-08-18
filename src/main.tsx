@@ -11,15 +11,17 @@ import { ModalWindowProvider } from './assets/ModalWindow/ModalWindowProvider.ts
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
-      <ModalWindowProvider>
-        <NavigationProvider>
+      <NavigationProvider>
+        <ModalWindowProvider>
+
           <TimerProvider>
             <Profiler id="App" onRender={() => { }}>
               <App />
             </Profiler>
           </TimerProvider>
-        </NavigationProvider>
-      </ModalWindowProvider>
+
+        </ModalWindowProvider>
+      </NavigationProvider>
     </Provider>
   </StrictMode>,
 )

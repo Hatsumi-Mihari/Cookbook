@@ -2,6 +2,7 @@
     "SearchIndex":[
         {
             "index_items": 0,
+            "id": 500,
             "is_category": true,
             "lable": "Main",
             "category": "Main",

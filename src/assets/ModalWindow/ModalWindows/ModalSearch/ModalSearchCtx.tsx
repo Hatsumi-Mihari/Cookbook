@@ -1,20 +1,10 @@
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { ctxInput, ModalSerchInput } from './ModalSearchClass';
 import { useAppSelector } from '../../../../store/Hooks/useAppHooks';
+import Fuse from 'fuse.js'
 
 
 const ModalInputCtx = createContext<ModalSerchInput>(ctxInput);
-
-function containsSubstring(word: string, search: string, caseSensitive: boolean = true): boolean {
-
-    const escapedSearch = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-
-    const flags = caseSensitive ? '' : 'i';
-    const regex = new RegExp(escapedSearch, flags);
-
-    return regex.test(word);
-}
-
 
 export const useInputCtx = () => {
     return useContext(ModalInputCtx)
@@ -44,13 +34,12 @@ export const useGetResultSearch = () => {
         if (!value || !IndexSearch?.SearchIndex) return;
 
         const timerId = setTimeout(() => {
-            let indexes: number[] = [];
-            for (let i = 0; i < sizeOfIndexSearch; i++) {
-                if (containsSubstring((IndexSearch.SearchIndex[i]?.lable ?? '').toLowerCase(), value.toLowerCase())) {
-                    indexes.push(i);
-                    console.log(i);
-                }
-            }
+
+            const fuse = new Fuse(IndexSearch.SearchIndex, {keys: ['lable'], threshold: 0.4});
+            const indexes: number[] = fuse.search(value).map(result => result.refIndex);
+
+            console.log(indexes);
+            
             updateLoadedData(indexes);
         }, 1000);
 

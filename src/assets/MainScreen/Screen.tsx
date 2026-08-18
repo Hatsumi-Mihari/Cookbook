@@ -27,11 +27,13 @@ function MainScreen() {
 
     useEffect(() => {
         const gotoIndex: IndexTable | undefined = index?.Index_table.find((item) => item.id === navidation.getCurrentId());
+       console.log(gotoIndex?.index,  content?.items[gotoIndex.index].id, content?.items[gotoIndex.index].childIds);
         if (
             navidation.getCurrentId() <= limCategoryMax &&
             limCategoryMax !== -1 &&
             gotoIndex?.index !== undefined
         ) {
+           
             updateTypeRender(gotoIndex?.type ?? defaultValueRender);
             updateChildIds(content?.category[gotoIndex.index].cardsId ?? [0]);
             return; 
@@ -49,12 +51,14 @@ function MainScreen() {
                 updateChildIds(content?.items[gotoIndex.index].childIds as number[]);
 
             }
+            return;
         }
 
-        if (gotoIndex?.index !== undefined && content?.items[gotoIndex.index].id > limMapIdMin && content?.items[gotoIndex.index].childIds === undefined){
-            
+        if (gotoIndex?.index !== undefined && content?.items[gotoIndex.index].id >= limMapIdMin && content?.items[gotoIndex.index].childIds === undefined){
+             
             updateTypeRender(gotoIndex?.type ?? defaultValueRender);
             setMapIndex(gotoIndex?.index ?? 0);
+            return;
         }
     }, [navidation.eventNavigation]);
 
