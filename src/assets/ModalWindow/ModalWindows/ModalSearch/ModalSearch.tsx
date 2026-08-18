@@ -3,9 +3,11 @@ import ModalSeachLine from './ModalSeacrhLine';
 import { useGetResultSearch } from './ModalSearchCtx'
 import { useRef } from 'react'
 import LoadSpiner from '../../../Loader/LoadSpiner';
+import { useAppSelector } from '../../../../store/Hooks/useAppHooks';
 
 function ModalSearch() {
     const resultSearch = useGetResultSearch();
+    const IndexSearch = useAppSelector((state) => state.AppState.index_search);
 
     return (
         <>
@@ -15,26 +17,18 @@ function ModalSearch() {
                     {
                         resultSearch.isLoaded ?
                             <>
-                                <div className="ModalSearchListElem">
-                                    <div className="ModalSearchListElemImg">
-                                        <div></div>
-                                    </div>
-                                    <div className="ModalSearchListElemData">
-                                        <p>{resultSearch.value}</p>
-                                        <p>{resultSearch.isLoaded}</p>
-                                        <p>123</p>
-                                    </div>
-                                </div>
-                                <div className="ModalSearchListElem">
-                                    <div className="ModalSearchListElemImg">
-                                        <div></div>
-                                    </div>
-                                    <div className="ModalSearchListElemData">
-                                        <p>Title</p>
-                                        <p>123</p>
-                                        <p>123</p>
-                                    </div>
-                                </div>
+                                {resultSearch.ResultData.map((i) => {
+                                    return (<div className="ModalSearchListElem" key={IndexSearch?.SearchIndex[i].id}>
+                                        <div className="ModalSearchListElemImg">
+                                            <div></div>
+                                        </div>
+                                        <div className="ModalSearchListElemData">
+                                            <p>{IndexSearch?.SearchIndex[i].lable}</p>
+                                            <p><b>Category: </b> {IndexSearch?.SearchIndex[i].category}</p>
+                                            <p>123</p>
+                                        </div>
+                                    </div>)
+                                })}
                             </>
                             : <LoadSpiner></LoadSpiner>
                     }

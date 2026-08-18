@@ -168,7 +168,7 @@
     {
       "id": 500,
       "type": "map",
-      "lable": "null",
+      "lable": "Pizza Piperoni",
       "img_src": "null",
       "content": {
         "list": [
@@ -197,8 +197,6 @@
             "mapId": -1,
             "lable": "Mozzarella",
             "weight": [
-              50,
-              80,
               120,
               130
             ],
@@ -235,14 +233,14 @@
     {
       "id": 501,
       "type": "map",
-      "lable": "null",
+      "lable": "Pizza Margarita",
       "img_src": "null",
       "content": {
         "list": [
           {
             "stepId": 0,
             "mapId": 502,
-            "lable": "Dough12",
+            "lable": "Dough",
             "weight": [
               250
             ],
