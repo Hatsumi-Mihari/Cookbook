@@ -66,6 +66,9 @@ export const sliceStateApp = createSlice({
         updateGlobalFilter: (state, action: PayloadAction<number>) => {
             state.globalFilterID = action.payload;
             console.log(state.globalFilterID);
+        },
+        updatePageTitle: (state, action: PayloadAction<string>) => {
+            state.titlePage = action.payload;
         }
     },
     extraReducers: (builder) => {
@@ -87,5 +90,5 @@ export const sliceStateApp = createSlice({
     }
 });
 
-export const { updateGlobalFilter } = sliceStateApp.actions;
+export const { updateGlobalFilter, updatePageTitle } = sliceStateApp.actions;
 export default sliceStateApp.reducer;

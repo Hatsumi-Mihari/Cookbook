@@ -2,7 +2,7 @@ import DropDownListM3 from '../DropDownListM3/DropDownListM3';
 import { useAppSelector } from '../../store/Hooks/useAppHooks';
 import { memo, useEffect, useState } from 'react'
 import { useAppDispatch } from '../../store/Hooks/useAppHooks';
-import { updateGlobalFilter } from '../../store/Slices/AppSlice';
+import { updateGlobalFilter, updatePageTitle } from '../../store/Slices/AppSlice';
 
 
 function HeaderDropDownTitle() {
@@ -17,11 +17,13 @@ function HeaderDropDownTitle() {
             value: appstate.header.header.defaultValue,
             typeID: appstate.header.header.defaultFilterID
         });
+        appDispatch(updatePageTitle(dropdownOut.value));
     }, [appstate.readyLoad])
 
     useEffect(() => {
         console.log(dropdownOut);
         appDispatch(updateGlobalFilter(dropdownOut.typeID));
+        appDispatch(updatePageTitle(dropdownOut.value));
     }, 
     [dropdownOut]);
 
@@ -38,7 +40,7 @@ function HeaderDropDownTitle() {
                     onChangeValue={updateDopDownout}
                     valueDefault={appstate.header?.header?.defaultValue}
                 />
-                <div className="HeaderLable">{dropdownOut.value}</div>
+                
             </> : <></>}
     </>
 }

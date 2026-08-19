@@ -5,6 +5,7 @@ import MapView from './ScreenView/MapView/MapView';
 import CardsView from './ScreenView/CardsView/CardsView';
 import type { IndexTable, RootIndexTable } from '../../store/types/index_table';
 import { useNavigation } from '../Classes/Navigation/NavigationProvider';
+import { updatePageTitle } from '../../store/Slices/AppSlice';
 
 function MainScreen() {
     const defaultValueRender = "card";
@@ -17,17 +18,20 @@ function MainScreen() {
     const index = useAppSelector((state) => state.AppState.index_table);
     const tableLimsIDs = useAppSelector((state) => state.AppState.content?.idTable)
     const navidation = useNavigation();
-
+    const categoryState = useAppSelector((state) => state.AppState.globalFilterID);
     const limCategoryMax: number = tableLimsIDs !== undefined ? tableLimsIDs[0].max_lim : -1;
     const limMapIdMin: number = tableLimsIDs !== undefined ? tableLimsIDs[2].min_lim : -1;
+    const appDispatch = useAppDispatch();
 
     useEffect(() => {
-        updateChildIds(content?.category[0].cardsId ?? [0]);
+        updateChildIds(content?.category[categoryState].cardsId ?? [0]);
     }, [loaded]);
 
     useEffect(() => {
         const gotoIndex: IndexTable | undefined = index?.Index_table.find((item) => item.id === navidation.getCurrentId());
-       console.log(gotoIndex?.index,  content?.items[gotoIndex.index].id, content?.items[gotoIndex.index].childIds);
+        if (gotoIndex !== undefined) appDispatch(updatePageTitle(gotoIndex.lable));
+
+
         if (
             navidation.getCurrentId() <= limCategoryMax &&
             limCategoryMax !== -1 &&
@@ -44,6 +48,7 @@ function MainScreen() {
             const childID = content?.items[gotoIndex.index].childIds[0] ?? 0;
             if (childID >= limMapIdMin) {
                 const indexL = index?.Index_table.find((item) => item.id === childID);
+                appDispatch(updatePageTitle(indexL?.lable ?? 'undefined'))
                 updateTypeRender(indexL?.type ?? defaultValueRender);
                 setMapIndex(indexL?.index ?? 0);
             } else {
@@ -55,12 +60,18 @@ function MainScreen() {
         }
 
         if (gotoIndex?.index !== undefined && content?.items[gotoIndex.index].id >= limMapIdMin && content?.items[gotoIndex.index].childIds === undefined){
-             
+            
             updateTypeRender(gotoIndex?.type ?? defaultValueRender);
             setMapIndex(gotoIndex?.index ?? 0);
             return;
         }
     }, [navidation.eventNavigation]);
+
+    useEffect(() => {
+        console.log(content?.category[categoryState].cardsId );
+        updateChildIds(content?.category[categoryState].cardsId ?? [0]);
+        updateTypeRender(defaultValueRender);
+    }, [categoryState])
 
 
     return (

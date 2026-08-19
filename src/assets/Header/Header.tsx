@@ -14,6 +14,7 @@ import { useNavigation } from '../Classes/Navigation/NavigationProvider';
 import { useModalWindowCtx } from '../ModalWindow/ModalWindowProvider';
 import ModalSearch from '../ModalWindow/ModalWindows/ModalSearch/ModalSearch';
 import ModalSeachLine from '../ModalWindow/ModalWindows/ModalSearch/ModalSeacrhLine';
+import HeaderTitle from './HeaderTitle';
 
 
 function Header() {
@@ -60,6 +61,7 @@ function Header() {
 
                 <HeaderButtonTimer></HeaderButtonTimer>
                 <HeaderDropDownTitle></HeaderDropDownTitle>
+                <HeaderTitle></HeaderTitle>
             </div>
         </>
     );

@@ -3,27 +3,27 @@
         "dropdownList": [
             {
                 "link": "", 
-                "lable": "Main",
-                "value": "Main",
-                "typeID": 101,
+                "lable": "Menu",
+                "value": "Menu",
+                "typeID": 0,
                 "icon": "null"
             },
             {
                 "link": "", 
                 "lable": "Gluten", 
                 "value": "Gluten",
-                "typeID": 102,
+                "typeID": 1,
                 "icon": "null"
             },
             {
                 "link": "", 
                 "lable": "Delivery",
                 "value": "Delivery",
-                "typeID": 103,
+                "typeID": 2,
                 "icon": "null"
             }
         ],
-        "defaultValue": "Main",
-        "defaultFilterID": 101
+        "defaultValue": "Menu",
+        "defaultFilterID": 0
     }
 }
