@@ -8,14 +8,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.core.SpringVersion;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.annotation.PostConstruct;
-import tools.jackson.databind.ObjectMapper;
+import com.example.demo.dto.response.APIDataDTO;
 
 @Component
 @ConfigurationProperties(prefix = "app")
 public class AppData {
+
+
     @Value("${app.appName}")
     private String appName;
 
@@ -48,7 +48,7 @@ public class AppData {
         this.springVersion = SpringVersion.getVersion();
     }
 
-public String getAppName() { return appName; }
+    public String getAppName() { return appName; }
     public void setAppName(String appName) { this.appName = appName; }
 
     public String getVersion() { return version; }
@@ -69,19 +69,6 @@ public String getAppName() { return appName; }
     public int getBuild() { return build; }
     public void setBuild(int build) { this.build = build; }
 
-    
-    @JsonIgnore
-    public String getFormattedBuild() {
-        return String.format("%d,%s", this.build, this.symbolCodeVer);
-    }
 
-    @JsonIgnore
-    public String toAboutApiJson() {
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            return mapper.writeValueAsString(this);
-        } catch (Exception e) {
-            throw new RuntimeException("Error contein AppData to JSON", e);
-        }
-    }
+
 }
