@@ -26,6 +26,8 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       },
     ],
 
+    base: '/Cookbook/',
+
     define: {
       __APP_ENV__: JSON.stringify(env.APP_ENV || mode),
       __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
