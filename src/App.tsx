@@ -1,65 +1,14 @@
-import { useEffect, useEffectEvent, useState } from 'react'
+
 import './App.css'
-import { useSelector, useDispatch } from 'react-redux';
-import Header from './assets/Header/Header'
-import Loader from './assets/Loader/Loader'
-import Screen from './assets/MainScreen/Screen';
-import ModalWindowBase from './assets/ModalWindow/ModalWindowBase'
-import { useTimerManager } from './assets/Classes/TimerManager/TimerContext';
-import { useAppDispatch, useAppSelector } from './store/Hooks/useAppHooks';
-import { initApp } from './store/Slices/AppSlice';
-import type { TimerAction } from './assets/Classes/TimerManager/TimerMenager';
+import {debugUI } from './utils/debug'
 
-
-async function req() {
-  const response = await fetch("/api/v1/header.json");
-  const data = await response.json();
-
-  console.log(data);
-}
 
 function App() {
-  const testPage: boolean = false;
-
-  const timerManager = useTimerManager();
-  const appState = useAppSelector((state) => state.AppState);
-  const dispatcher = useAppDispatch();
-
-  useEffect(() => {
-    dispatcher(initApp());
-  }, [])
-
-  useEffect(() => {
-    console.log(appState.conf?.conf.version);
-    const timer_conf = appState.conf?.conf.config_timer_default;
-    if (timer_conf !== undefined) {
-      timerManager.addTimer({
-        duration: timer_conf.time,
-        stateAction: timer_conf.action_state as TimerAction
-      });
-    }
-
-  }, [appState.readyLoad]);
-
+  debugUI("UI debug main");
 
   return (
     <>
-      {testPage ?
-        <>
-          <div className="testMain">
-            <div className='testConteiner'>
-              <Loader></Loader>
-            </div>
-          </div>
-        </>
-        :
-        <>
-          <div className="MainPage">
-            <Loader/>
-            <Header></Header>
-            <Screen></Screen>
-          </div>
-        </>}
+    <h1>hello world</h1>
     </>
   )
 }
