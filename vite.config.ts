@@ -10,28 +10,31 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 
   return {
     plugins: [react(), svgr(), 
-        env.VITE_ENABLE_DEBUG === 'false' && {
+       env.VITE_ENABLE_DEBUG === 'false' && {
         name: 'strip-debug-code',
-        transform(code, id) {
+        transform(code: string, id: string) {
+          // 1. ВАЖНО: Игнорируем node_modules и файлы вне папки src
+          if (id.includes('node_modules') || !id.includes('/src/')) {
+            return null;
+          }
+
+          // 2. Обрабатываем только нужные расширения
           if (/\.(mjs|js|ts|jsx|tsx)$/.test(id)) {
             return {
               code: code
+                // Удаляем только безопасные console.*
                 .replace(/console\.(log|debug|info)\([\s\S]*?\);?/g, '')
                 .replace(/\b(debugUI|debugNet|debugStore)\([\s\S]*?\);?/g, '')
                 .replace(/debugger;/g, ''),
               map: null,
             };
           }
+          return null;
         },
-      },/**/
-    ],
+      },
+    ].filter(Boolean),
 
     base: '/Cookbook/',
-
-    define: {
-      __APP_ENV__: JSON.stringify(env.APP_ENV || mode),
-      __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
-    },
 
     server: {
       host: true,
