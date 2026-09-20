@@ -17,13 +17,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    runs-on: ubuntu-24.04
-    jobs:
   build:
     runs-on: ubuntu-24.04
     steps:
