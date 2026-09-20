@@ -40,7 +40,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 
     build: {
       sourcemap: false,
-      minify: !isDev ? 'oxc' : false,
+      minify: isDev ? 'oxc' : false,
       rollupOptions: {
               output: {
                 manualChunks(id) {
