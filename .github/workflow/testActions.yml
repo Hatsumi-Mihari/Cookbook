@@ -1,0 +1,18 @@
+name: Test Action CI/CD (Branch dev_refactoring)
+
+on: 
+  pull_requrest: 
+    branch: - dev_refactor_branch
+
+
+jobs: 
+  test: 
+    runs-on: ubuntu-26.04
+    container: 
+      image: node:22.22.1
+    steps:
+      - uses: actions/checkout@v3 
+        with: 
+          node-version: 22.22.1 
+      - run: npm ci 
+      - run: npm build
