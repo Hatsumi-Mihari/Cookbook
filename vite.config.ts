@@ -10,7 +10,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
 
   return {
     plugins: [react(), svgr(), 
-        /*!isDev && {
+        isDev === false && {
         name: 'strip-debug-code',
         transform(code, id) {
           if (/\.(mjs|js|ts|jsx|tsx)$/.test(id)) {
@@ -23,7 +23,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
             };
           }
         },
-      },*/
+      },/**/
     ],
 
     base: '/Cookbook/',
