@@ -44,7 +44,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
                 manualChunks(id) {
                   if (id.includes('node_modules')) {
                     return 'vendor';
-                  }
+                  } 
                 },
         },
       },
