@@ -1,19 +1,17 @@
 
-import type { Icons_Index } from '../../../types/icons_index'
+import type { Icons_Index } from '../../../types/ui/icons_index'
+import type {ButtonVariantUI} from '../../../types/ui/button_types'
 import iconsUrl from '../../../assets/icons/icons.svg'
 import type { NotifiType } from '../badge/Badge'
 import Badge from '../badge/Badge'
 import './ButtonM3.scss'
 
-type ButtonVariant = 'primary' | 'secondary' | 'danger' | 'outline' | 'error' | 'borderless';
-type ButtonType = 'square' | 'round';
+
 
 export interface ButtonM3 {
     lable: string | null,
     icon: Icons_Index | null,
-    variant: ButtonVariant,
-    type: ButtonType,
-    isActive: boolean | null,
+    style?: ButtonVariantUI,
     notifiBadgeInfo: String | null,
     notifiBadgeType: NotifiType | null,
     onClick: () => void
@@ -22,7 +20,7 @@ export interface ButtonM3 {
 function ButtonM3(props: ButtonM3) {
     return (
         <>
-            <div className={`ButtonM3_base ${props.variant ?? ''} ${props.type ?? ''} ${props.isActive === false ? 'unclickable' : ''}`} onClick={() => props.onClick()}>
+            <div className={`ButtonM3_base ${props.style?.variant ?? ''} ${props.style?.border ?? ''} ${props.style?.isActive === false ? 'unclickable' : ''}`} onClick={() => props.onClick()}>
                 {props.icon !== null ?
                     <svg>
                         <use href={`${iconsUrl}#${props.icon}`} />

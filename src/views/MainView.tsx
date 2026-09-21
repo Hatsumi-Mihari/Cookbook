@@ -1,16 +1,46 @@
 import './MainView.scss'
 import ButtonM3 from '../components/ui/button/ButtonM3'
-import {debugUI } from '../utils/debug'
+import FilterChiptM3 from '../components/ui/filterchip/FilterChiptM3'
+import { debugUI } from '../utils/debug'
 
 function MainView() {
     return (<div className="MainView">
+        <FilterChiptM3
+            icon={'placeholder'}
+            valueDefault={'1234'}
+            style={'primary'}
+            isActive={true}
+            options={[
+                {
+                    value: 'Marcy',
+                    icon: null
+                },
+                {
+                    value: 'Anny',
+                    icon: null
+                },
+                {
+                    value: 'Sasha',
+                    icon: null
+                },
+                {
+                    value: 'Luz',
+                    icon: null
+                },
+            ]}
+            onChangeValue={(value: string) => { debugUI("Onchange value -> " + value); }}
+        />
+
+
         <ButtonM3
             lable={'Marcy'}
             icon={'placeholder'}
             onClick={() => { debugUI("Marcy Wuz Is Hare") }}
-            variant={'primary'}
-            isActive={true}
-            type={'round'}
+            style={{
+                variant: 'primary',
+                border: 'square',
+                isActive: true
+            }}
             notifiBadgeInfo={null}
             notifiBadgeType={null}
         />
@@ -19,9 +49,11 @@ function MainView() {
             lable={'Sasha'}
             icon={'placeholder'}
             onClick={() => { debugUI("Sasha Is Hare") }}
-            variant={'secondary'}
-            isActive={true}
-            type={'round'}
+            style={{
+                variant: 'secondary',
+                border: 'round',
+                isActive: true
+            }}
             notifiBadgeInfo={null}
             notifiBadgeType={null}
         />
@@ -30,10 +62,12 @@ function MainView() {
             lable={'Anny'}
             icon={'placeholder'}
             onClick={() => { debugUI("Anny Bunchoi Is Hare") }}
-            variant={'outline'}
-            isActive={true}
-            type={'square'}
-             notifiBadgeInfo={'!'}
+            style={{
+                variant: 'outline',
+                border: 'square',
+                isActive: true
+            }}
+            notifiBadgeInfo={'!'}
             notifiBadgeType={'error'}
         />
 
@@ -41,9 +75,11 @@ function MainView() {
             lable={'Marcy'}
             icon={'placeholder'}
             onClick={() => { debugUI("Marcy Wuz Is Hare") }}
-            variant={'danger'}
-            isActive={true}
-            type={'square'}
+            style={{
+                variant: 'danger',
+                border: 'square',
+                isActive: true
+            }}
             notifiBadgeInfo={null}
             notifiBadgeType={null}
         />
@@ -52,9 +88,11 @@ function MainView() {
             lable={'Marcy'}
             icon={'placeholder'}
             onClick={() => { debugUI("Marcy Wuz Is Hare") }}
-            variant={'error'}
-            isActive={true}
-            type={'square'}
+            style={{
+                variant: 'error',
+                border: 'square',
+                isActive: true
+            }}
             notifiBadgeInfo={null}
             notifiBadgeType={null}
         />
@@ -63,9 +101,11 @@ function MainView() {
             lable={'Marcy'}
             icon={'placeholder'}
             onClick={() => { debugUI("Marcy Wuz Is Hare count") }}
-            variant={'error'}
-            isActive={true}
-            type={'square'}
+            style={{
+                variant: 'error',
+                border: 'square',
+                isActive: true
+            }}
             notifiBadgeInfo={'1'}
             notifiBadgeType={'count'}
         />
@@ -74,9 +114,11 @@ function MainView() {
             lable={'Marcy'}
             icon={'placeholder'}
             onClick={() => { debugUI("Marcy Wuz Is Hare count") }}
-            variant={'error'}
-            isActive={false}
-            type={'round'}
+            style={{
+                variant: 'error',
+                border: 'round',
+                isActive: false
+            }}
             notifiBadgeInfo={'!'}
             notifiBadgeType={'error'}
         />
@@ -85,9 +127,11 @@ function MainView() {
             lable={'Marcy'}
             icon={'placeholder'}
             onClick={() => { debugUI("Marcy Wuz Is Hare count") }}
-            variant={'borderless'}
-            isActive={false}
-            type={'round'}
+            style={{
+                variant: 'borderless',
+                border: 'round',
+                isActive: false
+            }}
             notifiBadgeInfo={null}
             notifiBadgeType={null}
         />
@@ -96,9 +140,11 @@ function MainView() {
             lable={'Marcy'}
             icon={'placeholder'}
             onClick={() => { debugUI("Marcy Wuz Is Hare count") }}
-            variant={'borderless'}
-            isActive={true}
-            type={'round'}
+            style={{
+                variant: 'borderless',
+                border: 'round',
+                isActive: true
+            }}
             notifiBadgeInfo={null}
             notifiBadgeType={null}
         />

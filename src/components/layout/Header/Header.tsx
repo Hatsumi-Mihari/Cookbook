@@ -11,16 +11,6 @@ function Header() {
     return (
         <>
             <div className="Header_Conteiner">
-                <ButtonM3
-                    lable={null}
-                    icon={'placeholder'}
-                    onClick={() => { debugUI("Button M3 Click") }}
-                    variant={'primary'}
-                    isActive={true}
-                    type={'round'}
-                    notifiBadgeInfo={null}
-                    notifiBadgeType={null}
-                />
                 <p>2</p>
                 <p>3</p>
                 <p>4</p>
