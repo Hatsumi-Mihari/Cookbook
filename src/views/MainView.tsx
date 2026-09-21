@@ -8,6 +8,32 @@ function MainView() {
         <FilterChiptM3
             icon={'placeholder'}
             valueDefault={'1234'}
+            style={'outline'}
+            isActive={true}
+            options={[
+                {
+                    value: 'Marcy',
+                    icon: null
+                },
+                {
+                    value: 'Anny',
+                    icon: null
+                },
+                {
+                    value: 'Sasha',
+                    icon: null
+                },
+                {
+                    value: 'Luz',
+                    icon: null
+                },
+            ]}
+            onChangeValue={(value: string) => { debugUI("Onchange value -> " + value); }}
+        />
+
+        <FilterChiptM3
+            icon={'placeholder'}
+            valueDefault={'1234'}
             style={'primary'}
             isActive={true}
             options={[
