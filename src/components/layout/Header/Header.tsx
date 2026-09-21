@@ -1,7 +1,5 @@
 import './Header.scss'
 import { memo } from 'react';
-import ButtonM3 from '../../ui/button/ButtonM3'
-import { debugUI } from '../../../utils/debug';
 
 
 
@@ -18,7 +16,7 @@ function Header() {
                 <p>6</p>
                 <p>7</p>
             </div>
-        </>
+        </> 
     );
 }
 

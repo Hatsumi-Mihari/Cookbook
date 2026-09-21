@@ -1,10 +1,7 @@
 import './FilterChiptM3.scss'
 import useOnClickOutside from '../../../hooks/useOnClickOutside'
-import type { Icons_Index } from '../../../types/ui/icons_index'
-import type { ButtonVariantUI } from '../../../types/ui/button_types'
 import iconsUrl from '../../../assets/icons/icons.svg'
-import { useEffect, useState, memo, useCallback, useMemo, useRef } from 'react';
-import { debugUI } from '../../../utils/debug';
+import { useState, memo, useCallback, useRef } from 'react';
 
 type DropDownMenuStyle = 'outline' | 'primary';
 
