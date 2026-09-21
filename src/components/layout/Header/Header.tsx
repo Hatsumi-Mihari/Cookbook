@@ -16,6 +16,7 @@ function Header() {
                     icon={'placeholder'}
                     onClick={() => { debugUI("Button M3 Click") }}
                     variant={'primary'}
+                    isActive={true}
                     type={'round'}
                     notifiBadgeInfo={null}
                     notifiBadgeType={null}

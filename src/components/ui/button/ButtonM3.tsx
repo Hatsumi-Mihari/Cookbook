@@ -13,7 +13,7 @@ export interface ButtonM3 {
     icon: Icons_Index | null,
     variant: ButtonVariant,
     type: ButtonType,
-    clickable: boolean | null,
+    isActive: boolean | null,
     notifiBadgeInfo: String | null,
     notifiBadgeType: NotifiType | null,
     onClick: () => void
@@ -22,7 +22,7 @@ export interface ButtonM3 {
 function ButtonM3(props: ButtonM3) {
     return (
         <>
-            <div className={`ButtonM3_base ${props.variant ?? ''} ${props.type ?? ''} ${props.clickable === false ? 'unclickable' : ''}`} onClick={() => props.onClick()}>
+            <div className={`ButtonM3_base ${props.variant ?? ''} ${props.type ?? ''} ${props.isActive === false ? 'unclickable' : ''}`} onClick={() => props.onClick()}>
                 {props.icon !== null ?
                     <svg>
                         <use href={`${iconsUrl}#${props.icon}`} />

@@ -9,7 +9,7 @@ function MainView() {
             icon={'placeholder'}
             onClick={() => { debugUI("Marcy Wuz Is Hare") }}
             variant={'primary'}
-            clickable={true}
+            isActive={true}
             type={'round'}
             notifiBadgeInfo={null}
             notifiBadgeType={null}
@@ -20,7 +20,7 @@ function MainView() {
             icon={'placeholder'}
             onClick={() => { debugUI("Sasha Is Hare") }}
             variant={'secondary'}
-            clickable={true}
+            isActive={true}
             type={'round'}
             notifiBadgeInfo={null}
             notifiBadgeType={null}
@@ -31,7 +31,7 @@ function MainView() {
             icon={'placeholder'}
             onClick={() => { debugUI("Anny Bunchoi Is Hare") }}
             variant={'outline'}
-            clickable={true}
+            isActive={true}
             type={'square'}
              notifiBadgeInfo={'!'}
             notifiBadgeType={'error'}
@@ -42,7 +42,7 @@ function MainView() {
             icon={'placeholder'}
             onClick={() => { debugUI("Marcy Wuz Is Hare") }}
             variant={'danger'}
-            clickable={true}
+            isActive={true}
             type={'square'}
             notifiBadgeInfo={null}
             notifiBadgeType={null}
@@ -53,7 +53,7 @@ function MainView() {
             icon={'placeholder'}
             onClick={() => { debugUI("Marcy Wuz Is Hare") }}
             variant={'error'}
-            clickable={true}
+            isActive={true}
             type={'square'}
             notifiBadgeInfo={null}
             notifiBadgeType={null}
@@ -64,7 +64,7 @@ function MainView() {
             icon={'placeholder'}
             onClick={() => { debugUI("Marcy Wuz Is Hare count") }}
             variant={'error'}
-            clickable={true}
+            isActive={true}
             type={'square'}
             notifiBadgeInfo={'1'}
             notifiBadgeType={'count'}
@@ -75,7 +75,7 @@ function MainView() {
             icon={'placeholder'}
             onClick={() => { debugUI("Marcy Wuz Is Hare count") }}
             variant={'error'}
-            clickable={false}
+            isActive={false}
             type={'round'}
             notifiBadgeInfo={'!'}
             notifiBadgeType={'error'}
@@ -86,7 +86,7 @@ function MainView() {
             icon={'placeholder'}
             onClick={() => { debugUI("Marcy Wuz Is Hare count") }}
             variant={'borderless'}
-            clickable={false}
+            isActive={false}
             type={'round'}
             notifiBadgeInfo={null}
             notifiBadgeType={null}
@@ -97,7 +97,7 @@ function MainView() {
             icon={'placeholder'}
             onClick={() => { debugUI("Marcy Wuz Is Hare count") }}
             variant={'borderless'}
-            clickable={true}
+            isActive={true}
             type={'round'}
             notifiBadgeInfo={null}
             notifiBadgeType={null}
