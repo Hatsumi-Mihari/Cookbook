@@ -1,6 +1,5 @@
 import './App.css'
 import './assets/styles/Thems_Color/Wight_Them.scss'
-import {debugUI, debugStore } from './utils/debug'
 import Header from './components/layout/Header/Header'
 import MainView from './views/MainView';
 

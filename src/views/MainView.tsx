@@ -1,6 +1,6 @@
 import './MainView.scss'
 import ButtonM3 from '../components/ui/button/ButtonM3'
-import {debugUI, debugStore } from '../utils/debug'
+import {debugUI } from '../utils/debug'
 
 function MainView() {
     return (<div className="MainView">
