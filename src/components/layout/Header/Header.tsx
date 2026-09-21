@@ -5,17 +5,20 @@ import { debugUI } from '../../../utils/debug';
 
 
 
-function Header() {;
+function Header() {
+    ;
 
     return (
         <>
             <div className="Header_Conteiner">
-                <ButtonM3 
+                <ButtonM3
                     lable={null}
                     icon={'placeholder'}
-                    onClick={() => {debugUI("Button M3 Click")}}
+                    onClick={() => { debugUI("Button M3 Click") }}
                     variant={'primary'}
                     type={'round'}
+                    notifiBadgeInfo={null}
+                    notifiBadgeType={null}
                 />
                 <p>2</p>
                 <p>3</p>
