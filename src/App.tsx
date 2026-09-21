@@ -1,14 +1,16 @@
-
 import './App.css'
+import './assets/styles/Thems_Color/Wight_Them.scss'
 import {debugUI, debugStore } from './utils/debug'
+import Header from './components/layout/Header/Header'
+import MainView from './views/MainView';
 
 
 function App() {
-  debugUI("UI debug main");
-  debugStore("test");
+
   return (
     <>
-    <button onClick={() => {debugUI("UI debug main");}}>click</button>
+    <Header></Header>
+    <MainView></MainView>
     <h1>hello world</h1>
     </>
   )

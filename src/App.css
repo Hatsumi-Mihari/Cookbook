@@ -4,35 +4,25 @@ body {
   height: 100vh;
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
-.MainPage{
-  display: grid;
-  height: 100vh;
-  width: 100vw;
-  grid-template-rows: 100px 1fr;
-  overflow: hidden;
-}
-
-
-.testMain {
-  display: grid;
-  position: relative;
+h1 {
   padding: 0;
   margin: 0;
-  width: 100vw;
-  min-height: 100vh;
-
-  background-color: #3f3f3f;
-  place-items: center;
-    align-items: center;
-  justify-items: center;
 }
 
-.testConteiner{
-  display: grid;
-  position: absolute;
-  align-items: center;
-  justify-items: center;
+p {
+  padding: 0;
+  margin: 0;
+}
 
+#root {
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  box-sizing: border-box;
+  min-width: 100vw;
+  min-height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
 }

@@ -1,0 +1,15 @@
+.Header_Conteiner {
+    display: grid;
+    position: relative;
+    width: 100%;
+    min-height: 80px;
+    max-height: 80px;
+    box-sizing: border-box;
+    background-color: var(--color-surface-container-highest);
+    grid-template-columns: repeat(4, 56px) 128px 164px 1fr;
+    align-items: center;
+    grid-gap: 8px;
+    border: 1px solid red;
+
+
+}
