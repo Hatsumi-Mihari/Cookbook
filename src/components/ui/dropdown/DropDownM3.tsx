@@ -1,4 +1,4 @@
-import './FilterChiptM3.scss'
+import './DropDownM3.scss'
 import useOnClickOutside from '../../../hooks/useOnClickOutside'
 import iconsUrl from '../../../assets/icons/icons.svg'
 import { useState, memo, useCallback, useRef } from 'react';
@@ -19,7 +19,7 @@ interface IDropDown {
     onChangeValue: (value: string) => void;
 }
 
-function FilterChiptM3(props: IDropDown) {
+function DropDowntM3(props: IDropDown) {
     const [idSelected, setIDSelected] = useState(0);
     const [isActive, setActive] = useState(false);
     const dropDownRef = useRef<HTMLDivElement>(null);
@@ -81,4 +81,4 @@ function FilterChiptM3(props: IDropDown) {
     );
 }
 
-export default memo(FilterChiptM3);
+export default memo(DropDowntM3);

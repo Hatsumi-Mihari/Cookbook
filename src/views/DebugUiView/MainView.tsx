@@ -1,11 +1,38 @@
 import './MainView.scss'
-import ButtonM3 from '../components/ui/button/ButtonM3'
-import FilterChiptM3 from '../components/ui/filterchip/FilterChiptM3'
-import { debugUI } from '../utils/debug'
+import ButtonM3 from '../../components/ui/button/ButtonM3'
+import DropDowntM3 from '../../components/ui/dropdown/DropDownM3'
+import { debugUI } from '../../utils/debug'
 
 function MainView() {
-    return (<div className="MainView">
-        <FilterChiptM3
+    return (<div className="DebugView">
+
+        <DropDowntM3
+            icon={'placeholder'}
+            valueDefault={'1234'}
+            style={'outline'}
+            isActive={false}
+            options={[
+                {
+                    value: 'Marcy',
+                    icon: null
+                },
+                {
+                    value: 'Anny',
+                    icon: null
+                },
+                {
+                    value: 'Sasha',
+                    icon: null
+                },
+                {
+                    value: 'Luz',
+                    icon: null
+                },
+            ]}
+            onChangeValue={(value: string) => { debugUI("Onchange value -> " + value); }}
+        />
+
+        <DropDowntM3
             icon={'placeholder'}
             valueDefault={'1234'}
             style={'outline'}
@@ -31,7 +58,7 @@ function MainView() {
             onChangeValue={(value: string) => { debugUI("Onchange value -> " + value); }}
         />
 
-        <FilterChiptM3
+        <DropDowntM3
             icon={'placeholder'}
             valueDefault={'1234'}
             style={'primary'}
