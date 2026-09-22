@@ -1,25 +1,18 @@
 import './Card.scss'
-import { type Item } from '../../../../../store/types/Content'
-import { memo, useCallback } from 'react'
-import { useNavigation } from '../../../../Classes/Navigation/NavigationProvider'
+import { memo } from 'react'
 
-interface CardItem {
-    item: Item
-}
 
-function Card(props: CardItem) {
-    const navigation = useNavigation();
+function Card() {
+
 
     return (
         <div className="CardConteiner" onClick={() => {
-            if (props.item.childIds !== undefined) {
-                navigation.push(props.item.id)
-            };
+
         }}>
             <div className="CardImg">
-                <img src={props.item.img_src} />
+                <img src={''} />
             </div>
-            <div className="CardTitle">{props.item.lable}</div>
+            <div className="CardTitle">{1243}</div>
         </div>
     );
 }
