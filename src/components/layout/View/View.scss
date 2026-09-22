@@ -1,0 +1,13 @@
+.View{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    align-items: center;
+    justify-items: center;
+}
