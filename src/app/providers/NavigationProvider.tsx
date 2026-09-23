@@ -1,4 +1,4 @@
-import React, { createContext, useState, ReactNode, useMemo, useCallback, useEffect } from 'react';
+import {createContext, useState, type ReactNode, useMemo, useCallback, useEffect } from 'react';
 import { debugProvider } from '../../utils/debug';
 import  {type Navigation, LIM_HISTORY_SIZE} from '../../entitis/ui/Navogation/Navigation'
 
@@ -11,8 +11,8 @@ interface NavidationProviderProps {
 export const NavigationCtx = createContext<Navigation | undefined>(undefined);
 
 export const NavigationProvider: React.FC<NavidationProviderProps> = ({ children }) => {
-    const [correntId, setCorrentId] = useState<number>(0);
-    const [correntIdTop, setCorrentIdTop] = useState<number>(0);
+    const [currentId, setCorrentId] = useState<number>(0);
+    const [currentIdTop, setCorrentIdTop] = useState<number>(0);
     const [history, updateHistory] = useState<number[]>([0])
     const [stateForwardArrow, setStateForwardArrow] = useState<boolean>(true);
     const [stateBackArrow, setStateBackArrow] = useState<boolean>(true);
@@ -44,13 +44,13 @@ export const NavigationProvider: React.FC<NavidationProviderProps> = ({ children
     const push = useCallback((value: number) => {
         if (history.length > LIM_HISTORY_SIZE){
             debugProvider("Navigation push", `history push is full, lim: ${LIM_HISTORY_SIZE}`);
-            setCorrentIdTop(correntId);
+            setCorrentIdTop(currentId);
             setCorrentId(0);
         }else{
             updateHistory(prev => [...prev, value]);
         }
 
-        if (value === history[correntId-1]){
+        if (value === history[currentId-1]){
             debugProvider("Navigation push", `value: ${value} is exisit in history`);
             return;
         }
@@ -60,18 +60,18 @@ export const NavigationProvider: React.FC<NavidationProviderProps> = ({ children
 
     const value = useMemo(() => ({
         actions: {
-            goBack,
-            goForward,
-            goHome,
-            push
+            goBack: goBack,
+            goForward: goForward,
+            goHome: goHome,
+            push: push
         },
         state: {
-            correntId,
-            correntIdTop,
-            stateForwardArrow,
-            stateBackArrow,
-            eventNavigation,
-            history
+            currentId: currentId,
+            currentIdTop: currentIdTop,
+            stateForwardArrow: stateForwardArrow,
+            stateBackArrow: stateBackArrow,
+            eventNavigation: eventNavigation,
+            history: history
         }
 
     }), [stateForwardArrow, stateBackArrow, eventNavigation, goBack, goForward, goHome, push]);

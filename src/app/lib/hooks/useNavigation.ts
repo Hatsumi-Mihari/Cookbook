@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { debugProvider } from '../../../utils/debug';
 import { NavigationCtx } from '../../providers/NavigationProvider';
 
