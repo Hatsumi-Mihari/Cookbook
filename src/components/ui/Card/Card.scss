@@ -1,0 +1,68 @@
+.CardConteiner {
+    display: grid;
+    background-color: var(--color-surface-container);
+    width: 220px;
+    height: 240px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    border: 1px solid var(--color-outline);
+    overflow: hidden;
+    position: relative;
+    padding: 4px;
+    transition: all 150ms ease-in-out;
+
+    .CardImg {
+        display: grid;
+        place-items: center;
+        justify-self: center;
+        width: 210px;
+        height: 190px;
+        border-radius: 14px;
+        box-sizing: border-box;
+        overflow: hidden;
+        background-color: var(--color-outline);
+        transition: all 150ms ease-in-out;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+            transition: all 500ms ease-in-out;
+            mix-blend-mode: luminosity;
+        }
+    }
+
+    .CardTitle {
+        display: grid;
+        position: absolute;
+        width: 100%;
+        height: 48px;
+        color: var(--color-outline);
+        font-size: 24px;
+        font-weight: 600;
+        align-self: end;
+        border-radius: 8pt;
+        align-items: center;
+        justify-items: center;
+    }
+
+    &:hover {
+        border-radius: 24px;
+        background-color: var(--color-inverse-primary);
+        -webkit-box-shadow: 0px 0px 16px 0px var(--color-shadow);
+
+        .CardImg {
+            border-radius: 20px;
+            background-color: var(--color-primary);
+            img {
+                max-width: 120%;
+                max-height: 120%;
+                
+            }
+        }
+
+        .CardTitle {
+            color: var(--color-primary);
+        }
+    }
+}

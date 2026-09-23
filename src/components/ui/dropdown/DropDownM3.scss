@@ -1,0 +1,214 @@
+@import '../../../assets/styles/ui_styles.scss';
+
+.DropDown_Main {
+    @include button-base;
+
+    display: grid;
+
+    &.outline,
+    &.primary {
+        border-radius: 8px;
+    }
+
+    &:hover {
+
+        &.outline,
+        &.primary {
+            border-radius: 16px;
+        }
+    }
+
+    &.primary {
+        background-color: var(--color-inverse-primary);
+
+        .ButtoM3_lable {
+            color: var(--color-primary) !important;
+        }
+
+        svg {
+            use {
+                fill: var(--color-primary) !important;
+            }
+        }
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--color-inverse-primary), white 20%);
+        }
+
+        &:active {
+            background-color: color-mix(in srgb, var(--color-inverse-primary), black 10%);
+        }
+
+    }
+
+    .DropDown_Icon,
+    .DropDown_Icon_arrow {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        align-items: center;
+        justify-items: center;
+    }
+
+    &:has(> .DropDown_Icon):has(> :first-child:nth-last-child(3)) {
+        grid-template-columns: 24px 1fr 24px;
+        grid-gap: 8px;
+        padding-left: 14px;
+        padding-right: 8px;
+
+        .ButtoM3_lable {
+            margin-right: 16px;
+        }
+    }
+
+    &.Active {
+        &.square {
+            border-radius: 8px;
+        }
+
+        &.primary {
+
+            .ButtoM3_lable {
+                color: var(--color-primaryy);
+            }
+
+            svg {
+                use {
+                    fill: var(--color-primary) !important;
+                }
+            }
+
+            &:hover {
+                background-color: color-mix(in srgb, var(--color-inverse-primary), white 20%);
+            }
+
+            &:active {
+                background-color: color-mix(in srgb, var(--color-inverse-primary), black 20%);
+            }
+
+        }
+
+        &.outline {
+            border: 2px solid var(--color-on-surface-variant);
+
+            .ButtoM3_lable {
+                color: var(--color-on-surface-variant);
+            }
+
+            svg {
+                use {
+                    fill: var(--color-on-surface-variant) !important;
+                }
+            }
+
+            &:hover {
+                background-color: color-mix(in srgb, var(--color-surface-container-low), black 15%);
+                border-color: var(--color-on-surface-variant);
+
+                svg {
+                    use {
+                        fill: var(--color-on-surface-variant) !important;
+                    }
+                }
+            }
+
+            &:active {
+                background-color: color-mix(in srgb, var(--color-surface-container-low), white 20%);
+            }
+        }
+
+        .FilterChipt_Icon_arrow {
+
+            svg {
+                transform: scaleY(-1);
+            }
+        }
+    }
+}
+
+.DropDownList_Options {
+    display: grid;
+    grid-auto-rows: 48px;
+    background-color: var(--color-surface-container);
+    margin-top: 4px;
+    border-radius: 8px;
+    position: absolute;
+    min-width: 150px;
+    max-width: fit-content;
+    height: fit-content;
+    z-index: 10;
+    box-sizing: border-box;
+    padding-top: 6px;
+    padding-bottom: 6px;
+
+    .DropDownList_Option {
+        display: grid;
+        grid-template-columns: 24px 1fr;
+        box-sizing: border-box;
+        padding-left: 14px;
+        align-items: center;
+
+        .DropDownList_Icon {
+            display: grid;
+            height: 100%;
+            align-items: center;
+
+            svg {
+                width: 24px;
+                height: 24px;
+
+                use {
+                    fill: var(--color-on-surface-variant) !important;
+                }
+            }
+        }
+
+        .DropDownList_Lable {
+            padding-left: 8px;
+            font-size: 14px;
+            font-weight: 200;
+        }
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--color-surface-container), black 10%);
+
+            .DropDownList_Lable {
+                font-weight: 600;
+            }
+        }
+
+        &:active {
+            border: 2px solid var(--color-on-surface-variant);
+        }
+
+        &.Selected {
+            background-color: var(--color-inverse-primary);
+
+            .DropDownList_Icon {
+                svg {
+                    use {
+                        fill: var(--color-primary) !important;
+                    }
+                }
+            }
+
+            .DropDownList_Lable {
+                font-weight: 600;
+                color: var(--color-primary) !important;
+            }
+
+            &:hover {
+                background-color: color-mix(in srgb, var(--color-inverse-primary), black 10%);
+
+                .DropDownList_Lable {
+                    font-weight: 800;
+                }
+            }
+
+            &:active {
+                background-color: color-mix(in srgb, var(--color-inverse-primary), black 15%);
+            }
+        }
+    }
+}

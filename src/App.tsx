@@ -1,15 +1,17 @@
-
 import './App.css'
-import {debugUI } from './utils/debug'
+import './assets/styles/Thems_Color/Wight_Them.scss'
+import Header from './components/layout/Header/Header'
+import { NavigationProvider } from './app/providers/NavigationProvider'
+import ViewPortLayout from './components/layout/Viewport/ViewPortLayout';
 
 
 function App() {
-  debugUI("UI debug main");
 
   return (
-    <>
-    <h1>hello world</h1>
-    </>
+    <NavigationProvider>
+      <Header></Header>
+      <ViewPortLayout></ViewPortLayout>
+    </NavigationProvider>
   )
 }
 

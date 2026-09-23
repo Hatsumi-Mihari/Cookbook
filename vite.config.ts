@@ -7,12 +7,15 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, process.cwd(), '');
   const isDev = mode === 'development';
 
-
   return {
     plugins: [react(), svgr(), 
-        !isDev && {
+       env.VITE_ENABLE_DEBUG === 'false' && {
         name: 'strip-debug-code',
-        transform(code, id) {
+        transform(code: string, id: string) {
+          if (id.includes('node_modules') || !id.includes('/src/')) {
+            return null;
+          }
+
           if (/\.(mjs|js|ts|jsx|tsx)$/.test(id)) {
             return {
               code: code
@@ -22,14 +25,12 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
               map: null,
             };
           }
+          return null;
         },
       },
-    ],
+    ].filter(Boolean),
 
-    define: {
-      __APP_ENV__: JSON.stringify(env.APP_ENV || mode),
-      __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
-    },
+    base: '/Cookbook/',
 
     server: {
       host: true,
@@ -44,7 +45,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
                 manualChunks(id) {
                   if (id.includes('node_modules')) {
                     return 'vendor';
-                  }
+                  } 
                 },
         },
       },
