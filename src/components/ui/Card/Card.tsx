@@ -1,18 +1,28 @@
 import './Card.scss'
-import { memo } from 'react'
+import { memo, useCallback } from 'react'
+import { debugUI } from '../../../utils/debug';
 
+interface Card{
+    id: number;
+    label: string;
+    imgURL: string;
+    onClick: () => void;
+}
 
-function Card() {
-
+function Card(props: Card) {
+    const handlerCallback = useCallback(() => {
+        debugUI("Card", `ID: ${props.id}, lable: ${props.label}, imgURL: ${props.imgURL}`)
+        props.onClick();
+    }, [])
 
     return (
         <div className="CardConteiner" onClick={() => {
-
+            handlerCallback();
         }}>
             <div className="CardImg">
-                <img src={''} />
+                <img src={props.imgURL} />
             </div>
-            <div className="CardTitle">{1243}</div>
+            <div className="CardTitle">{props.label}</div>
         </div>
     );
 }

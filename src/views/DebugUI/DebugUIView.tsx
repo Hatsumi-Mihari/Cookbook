@@ -1,9 +1,11 @@
-import './MainView.scss'
+import './DebugUIView.scss'
 import ButtonM3 from '../../components/ui/button/ButtonM3'
 import DropDowntM3 from '../../components/ui/dropdown/DropDownM3'
+import Card from '../../components/ui/Card/Card'
+import placeholderPicSrc from '../../assets/loaded/category/-1.png'
 import { debugUI } from '../../utils/debug'
 
-function MainView() {
+function DebugUIView() {
     return (<div className="DebugView">
 
         <DropDowntM3
@@ -201,7 +203,14 @@ function MainView() {
             notifiBadgeInfo={null}
             notifiBadgeType={null}
         />
+
+        <Card
+            id={0}
+            label={'Amphibia'}
+            imgURL={placeholderPicSrc}
+            onClick={() => debugUI("DebugUIView", "card")}
+        />
     </div>);
 }
 
-export default MainView;
+export default DebugUIView;

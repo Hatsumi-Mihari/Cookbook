@@ -1,5 +1,5 @@
 import './DropDownM3.scss'
-import useOnClickOutside from '../../../hooks/useOnClickOutside'
+import useOnClickOutside from '../../../app/lib/hooks/useOnClickOutside'
 import iconsUrl from '../../../assets/icons/icons.svg'
 import { useState, memo, useCallback, useRef } from 'react';
 
