@@ -5,7 +5,7 @@ import MapView from '../../../views/Map/MapView'
 
 
 function ViewPortLayout() {
-    const type: string = 'debugUI'
+    const type: string = 'map'
 
 
     return ( 
