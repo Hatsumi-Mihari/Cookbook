@@ -1,10 +1,10 @@
 import './Header.scss'
-import ButtonM3 from '../../ui/button/ButtonM3'
-import DropDowntM3 from '../../ui/dropdown/DropDownM3'
-import TextFild from '../../ui/textfild/TextFild'
+import {ButtonM3, DropDowntM3, TextFild, } from '@/shared/ui'
 import { memo, useCallback, useState } from 'react';
-import { debugUI } from '../../../utils/debug'
-import { useNavigation } from '../../../app/lib/hooks/useNavigation'
+import { debugUI } from '@/utils/debug'
+import HeaderSearch from '@/features/Header/HeaderSearch'
+
+import { useNavigation } from '@/app/lib/hooks/useNavigation'
 
 
 function Header() {
@@ -62,20 +62,7 @@ function Header() {
                     notifiBadgeInfo={null}
                     notifiBadgeType={null}
                 />
-                <ButtonM3
-                    lable={null}
-                    icon={'search'}
-                    onClick={() => {
-                        debugUI("Search");
-                    }}
-                    style={{
-                        variant: 'borderless',
-                        border: 'square',
-                        isActive: true
-                    }}
-                    notifiBadgeInfo={null}
-                    notifiBadgeType={null}
-                />
+                <HeaderSearch/>
                 <ButtonM3
                     lable={'00:00'}
                     icon={'alarm'}

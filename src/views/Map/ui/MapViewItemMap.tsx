@@ -1,6 +1,6 @@
-import { useCallback } from 'react';
+import { useCallback, memo } from 'react';
 import './MapViewItemMap.scss'
-import { debugUI } from '../../utils/debug';
+import { debugUI } from '@/utils/debug';
 
 type TypeTile = 1 | 2;
 
@@ -31,4 +31,4 @@ function MapViewItemMap(props: MapViewItemMap) {
     );
 }
 
-export default MapViewItemMap;
+export default memo(MapViewItemMap);

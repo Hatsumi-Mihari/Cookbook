@@ -1,7 +1,7 @@
 
-import type { Icons_Index } from '../../../entitis/ui/icons_index'
-import type {ButtonVariantUI} from '../../../entitis/ui/button_types'
-import iconsUrl from '../../../assets/icons/icons.svg'
+import type { Icons_Index } from '@/assets/icons'
+import type {ButtonVariantUI} from './button_types'
+import iconsUrl from '@/assets/icons/icons.svg'
 import type { NotifiType } from '../badge/Badge'
 import Badge from '../badge/Badge'
 import './ButtonM3.scss'

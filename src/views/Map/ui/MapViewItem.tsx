@@ -1,4 +1,5 @@
 import './MapViewItem.scss'
+import {memo} from 'react'
 
 interface MapViewItem{
     stepId: number;
@@ -46,4 +47,4 @@ function MapViewItem(props: MapViewItem) {
     </>);
 }
 
-export default MapViewItem;
+export default memo(MapViewItem);

@@ -1,7 +1,5 @@
 import './DebugUIView.scss'
-import ButtonM3 from '../../components/ui/button/ButtonM3'
-import DropDowntM3 from '../../components/ui/dropdown/DropDownM3'
-import Card from '../../components/ui/Card/Card'
+import {ButtonM3, DropDowntM3, Card} from '@/shared/ui'
 import placeholderPicSrc from '../../assets/loaded/category/-1.png'
 import { debugUI } from '../../utils/debug'
 

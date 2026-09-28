@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { debugProvider } from '../../../utils/debug';
+import { debugProvider } from '@/utils/debug';
 import { NavigationCtx } from '../../providers/NavigationProvider';
 
 export const useNavigation = () => {

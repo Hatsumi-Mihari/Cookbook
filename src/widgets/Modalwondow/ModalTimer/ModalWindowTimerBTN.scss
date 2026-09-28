@@ -1,0 +1,94 @@
+.ButtonM3_Grup_Conteiner.ModalTimerBTN {
+    border-radius: 8pt;
+    grid-template-columns: 1fr 56px;
+    overflow: hidden;
+
+    &:hover {
+        background-color: var(--color-primary-container);
+
+        button {
+            background-color: rgba(0,0,0,0);
+        }
+    }
+
+    button {
+        background-color: var(--color-surface);
+        border-radius: 8pt;
+        justify-items: center;
+        font-size: 1.2em;
+        font-weight: 400;
+
+        &:first-child {
+            border-top-left-radius: 8pt;
+            border-bottom-left-radius: 8pt;
+            min-width: 142px;
+
+        }
+
+
+        &:last-child {
+            border-top-right-radius: 8pt;
+            border-bottom-right-radius: 8pt;
+            padding-left: 8px;
+            padding-right: 8px;
+            align-self: self-end;
+
+            &:hover {
+                background-color: var(--color-error);
+
+                svg {
+                    fill: var(--color-on-error);
+                }
+            }
+        }
+
+        &:hover {
+            background-color: var(--color-primary-container);
+        }
+
+        &:active {
+            border-radius: 8pt;
+            color: var(--color-primary-container);
+        }
+    }
+}
+
+.ButtonM3_Grup_Conteiner.ModalTimerBTN.paused {
+    background-color: var(--color-tertiary-container);
+
+    button {
+        background-color: var(--color-tertiary-container);
+        color: var(--color-on-tertiary-container);
+        font-weight: 400;
+
+        svg {
+            fill: var(--color-on-tertiary-container);
+        }
+    }
+
+    &:hover {
+        background-color: var(--color-tertiary);
+
+        button {
+            background-color: var(--color-tertiary);
+            color: var(--color-on-tertiary);
+            font-weight: 400;
+
+            svg {
+                fill: var(--color-on-tertiary);
+            }
+
+            &:last-child {
+
+                &:hover {
+                    background-color: var(--color-error);
+
+                    svg {
+                        fill: var(--color-on-error);
+                    }
+                }
+            }
+        }
+    }
+
+}

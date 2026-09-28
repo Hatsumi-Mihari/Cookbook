@@ -1,7 +1,7 @@
 import './CardsView.scss'
-import Card from '../../components/ui/Card/Card'
-import placeholderPicSrc from '../../assets/loaded/category/-1.png'
-import { debugUI } from '../../utils/debug';
+import { Card } from '@/shared/ui';
+import placeholderPicSrc from '@/assets/loaded/category/-1.png'
+import { debugUI } from '@/utils/debug';
 import { useEffect } from 'react';
 
 function CardsView() {

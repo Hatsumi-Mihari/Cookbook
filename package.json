@@ -21,16 +21,18 @@
     "sass": "^1.102.0"
   },
   "devDependencies": {
+    "@feature-sliced/eslint-config": "^0.1.1",
     "@types/debug": "^4.1.13",
     "@types/node": "^24.13.2",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "esbuild": "^0.28.2",
+    "husky": "^8.0.0",
     "oxlint": "^1.71.0",
     "typescript": "~6.0.2",
     "vite": "^8.3.0",
     "vite-plugin-svgr": "^5.2.0",
-    "husky": "^8.0.0"
+    "vite-tsconfig-paths": "^6.1.1"
   }
 }

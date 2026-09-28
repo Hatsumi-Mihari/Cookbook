@@ -1,9 +1,8 @@
-
 import { debugUI } from '../../utils/debug';
+import {memo} from 'react';
 import './MapView.scss'
-import MapViewItem from './MapViewItem';
-import MapViewItemMap from './MapViewItemMap';
-
+import MapViewItem from './ui/MapViewItem';
+import MapViewItemMap from './ui/MapViewItemMap';
 
 
 function MapView() {
@@ -69,4 +68,4 @@ function MapView() {
     </>);
 }
 
-export default MapView;
+export default memo(MapView);
