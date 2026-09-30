@@ -1,0 +1,1 @@
+export {type Views, LAZY_VIEWS} from './views/config'

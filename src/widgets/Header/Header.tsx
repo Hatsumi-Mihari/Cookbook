@@ -2,7 +2,7 @@ import './Header.scss'
 import {ButtonM3, DropDowntM3, TextFild, } from '@/shared/ui'
 import { memo, useCallback, useState } from 'react';
 import { debugUI } from '@/utils/debug'
-import HeaderSearch from '@/features/Header/HeaderSearch'
+import {HeaderSearch , HeaderDropDown, HeaderTitle} from '@/features'
 
 import { useNavigation } from '@/app/lib/hooks/useNavigation'
 
@@ -78,38 +78,8 @@ function Header() {
                     notifiBadgeType={null}
                 />
                 <>
-                    <DropDowntM3
-                        icon={'placeholder'}
-                        valueDefault={'Marcy'}
-                        style={'outline'}
-                        isActive={true}
-                        options={[
-                            {
-                                value: 'Marcy',
-                                icon: null
-                            },
-                            {
-                                value: 'Anny',
-                                icon: null
-                            },
-                            {
-                                value: 'Sasha',
-                                icon: null
-                            },
-                            {
-                                value: 'Luz',
-                                icon: null
-                            },
-                        ]}
-                        onChangeValue={(value: string) => {
-                            debugUI("Onchange value -> " + value);
-                            handlerSetValue(value);
-                        }}
-                    />
-                    <TextFild
-                        text={dropdownValue}
-                        classname={'Header_Lable'}
-                    />
+                    <HeaderDropDown/>
+                    <HeaderTitle></HeaderTitle>
                 </>
             </div>
         </>

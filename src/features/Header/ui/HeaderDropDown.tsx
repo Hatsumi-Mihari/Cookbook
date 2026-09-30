@@ -1,8 +1,12 @@
 import { DropDowntM3 } from '@/shared/ui'
 import { debugUI } from '@/utils/debug';
 import { memo } from 'react'
+import {useAppStore} from '@/store'
+
 
 function HeaderDropDown() {
+    const AppDispatch = useAppStore();
+
     return (
         <>
             <DropDowntM3
@@ -12,25 +16,25 @@ function HeaderDropDown() {
                 isActive={true}
                 options={[
                     {
-                        value: 'Marcy',
+                        value: 'cards',
                         icon: null
                     },
                     {
-                        value: 'Anny',
+                        value: 'map',
                         icon: null
                     },
                     {
-                        value: 'Sasha',
+                        value: 'debug',
                         icon: null
                     },
                     {
-                        value: 'Luz',
+                        value: 'loader',
                         icon: null
                     },
                 ]}
                 onChangeValue={(value: string) => {
-                    debugUI("Onchange value -> " + value);
-
+                    debugUI("Onchange value 1 -> " + value);
+                    AppDispatch.setDropDownHeaderValue(value);
                 }}
             />
         </>
