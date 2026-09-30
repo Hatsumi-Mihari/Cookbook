@@ -1,6 +1,6 @@
 import './Header.scss'
-import {ButtonM3, DropDowntM3, TextFild, } from '@/shared/ui'
-import { memo, useCallback, useState } from 'react';
+import {ButtonM3 } from '@/shared/ui'
+import { memo } from 'react';
 import { debugUI } from '@/utils/debug'
 import {HeaderSearch , HeaderDropDown, HeaderTitle} from '@/features'
 
@@ -8,10 +8,10 @@ import { useNavigation } from '@/app/lib/hooks/useNavigation'
 
 
 function Header() {
-    const [dropdownValue, setDropDownValue] = useState("");
+    /*const [dropdownValue, setDropDownValue] = useState("");
     const handlerSetValue = useCallback((val: string) => {
         setDropDownValue(val);
-    }, [])
+    }, [])*/
     const navigation = useNavigation();
 
     return (

@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import {type Views} from '@/views' ;
+//import { createAsyncThunk } from '@reduxjs/toolkit';
+import {type Views} from '@/app/config' ;
 import {debugStore} from '@/utils/debug';
 
 
