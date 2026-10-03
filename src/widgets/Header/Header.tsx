@@ -2,16 +2,12 @@ import './Header.scss'
 import {ButtonM3 } from '@/shared/ui'
 import { memo } from 'react';
 import { debugUI } from '@/utils/debug'
-import {HeaderSearch , HeaderDropDown, HeaderTitle} from '@/features'
+import {HeaderSearch , HeaderDropDown, HeaderTitle, HeaderButtonAlarm} from '@/features'
 
 import { useNavigation } from '@/app/lib/hooks/useNavigation'
 
 
 function Header() {
-    /*const [dropdownValue, setDropDownValue] = useState("");
-    const handlerSetValue = useCallback((val: string) => {
-        setDropDownValue(val);
-    }, [])*/
     const navigation = useNavigation();
 
     return (
@@ -63,20 +59,7 @@ function Header() {
                     notifiBadgeType={null}
                 />
                 <HeaderSearch/>
-                <ButtonM3
-                    lable={'00:00'}
-                    icon={'alarm'}
-                    onClick={() => { 
-                        debugUI("Alarm");
-                    }}
-                    style={{
-                        variant: 'outline',
-                        border: 'square',
-                        isActive: true
-                    }}
-                    notifiBadgeInfo={null}
-                    notifiBadgeType={null}
-                />
+                <HeaderButtonAlarm></HeaderButtonAlarm>
                 <>
                     <HeaderDropDown/>
                     <HeaderTitle></HeaderTitle>
