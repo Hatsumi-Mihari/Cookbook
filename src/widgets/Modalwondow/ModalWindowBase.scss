@@ -1,0 +1,94 @@
+.ModalWindowCloseCollision{
+    display: block;
+    position: fixed;
+    z-index: 98;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.200);
+}
+.ModalWindowBase {
+    display: grid;
+    position: fixed;
+    z-index: 99;
+    background-color: var(--color-surface);
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 8px;
+    padding-bottom: 20px;
+    border-radius: 16pt;
+    min-width: fit-content;
+    min-height: fit-content;
+    grid-template-rows: 56px auto;
+    box-sizing: border-box;
+    grid-row-gap: 8px;
+    top: 100px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    box-shadow: 0px 0px 12px rgb(0, 0, 0);
+    
+
+
+    .ModalWindowBaseControl {
+        display: grid;
+        grid-template-columns: 1fr 56px;
+        grid-column-gap: 16px;
+        height: 56px;
+        width: 100%;
+        box-sizing: border-box;
+
+        .ModalWindowBaseLable {
+            display: grid;
+            grid-column: 1;
+            align-self: center;
+            font-weight: 400;
+            font-size: 2em;
+            box-sizing: border-box;
+        }
+
+        .ModalWindowBaseClose {
+
+            background-color: rgba(0, 0, 0, 0);
+            border-radius: 8pt;
+            cursor: pointer;
+
+            svg {
+                fill: var(--color-outline);
+            }
+
+            &:hover {
+                background-color: var(--color-outline-variant);
+                border-radius: 8pt;
+
+                svg {
+                    fill: var(--color-surface);
+                }
+            }
+
+            &:active {
+                display: grid;
+                align-items: center;
+                justify-items: center;
+                box-sizing: border-box;
+                border-radius: 28pt;
+
+                &::after {
+                    display: grid;
+                    position: absolute;
+                    z-index: -1;
+                    pointer-events: none;
+                    width: 100%;
+                    height: 100%;
+                    content: ".";
+                    background-color: var(--color-on-primary-container);
+                    opacity: 20%;
+                    font-size: 0;
+                }
+            }
+        }
+    }
+
+    .ModalWindowContent {
+        display: grid;
+        width: 98%;
+    }
+}

@@ -1,0 +1,1 @@
+export {appSlice} from './modal/app/AppSlice'

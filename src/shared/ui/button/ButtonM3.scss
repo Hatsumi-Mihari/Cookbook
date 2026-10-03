@@ -1,0 +1,251 @@
+.ButtonM3_base {
+    display: grid;
+    max-width: fit-content;
+    min-width: 48px;
+    height: 48px;
+    box-sizing: border-box;
+    background-color: blue;
+    align-items: center;
+    justify-items: center;
+    position: relative;
+    user-select: none;
+
+    &:has(> :first-child:nth-last-child(2)) {
+        grid-template-columns: 24px 1fr;
+        grid-gap: 8px;
+        padding-left: 14px;
+        padding-right: 24px;
+    }
+
+    &:has(> .Badge_Notifi):has(> :first-child:nth-last-child(3)) {
+        grid-template-columns: 24px 1fr;
+        grid-gap: 8px;
+        padding-left: 14px;
+        padding-right: 24px;
+    }
+
+    .ButtoM3_lable {
+        box-sizing: border-box;
+        font-size: 1.2em;
+        font-weight: 400;
+        color: red;
+
+    }
+
+    svg {
+        display: grid;
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+
+        use {
+            fill: rgb(0, 255, 191) !important;
+            ;
+        }
+    }
+
+    &.primary {
+        background-color: var(--color-primary);
+        transition: 150ms ease-in-out all;
+
+        svg {
+            use {
+                fill: var(--color-on-primary) !important;
+            }
+        }
+
+        .ButtoM3_lable {
+            color: var(--color-on-primary);
+        }
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--color-primary), white 20%);
+        }
+
+        &:active {
+            background-color: color-mix(in srgb, var(--color-primary), black 15%);
+        }
+    }
+
+
+    &.secondary {
+        background-color: var(--color-secondary);
+        transition: 150ms ease-in-out all;
+
+        svg {
+            use {
+                fill: var(--color-on-primary) !important;
+            }
+        }
+
+        .ButtoM3_lable {
+            color: var(--color-on-secondary);
+        }
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--color-secondary), black 30%);
+        }
+
+        &:active {
+            background-color: color-mix(in srgb, var(--color-secondary), white 20%);
+        }
+    }
+
+    &.outline {
+        background-color: var(--color-surface-container-low);
+        transition: 150ms ease-in-out all;
+        border: 1px solid var(--color-outline);
+
+        svg {
+            use {
+                fill: var(--color-outline) !important;
+            }
+        }
+
+        .ButtoM3_lable {
+            color: var(--color-outline);
+        }
+
+        &:hover {
+            border-color: var(--color-on-surface);
+            background-color: color-mix(in srgb, var(--color-surface-container-low), white 20%);
+
+            .ButtoM3_lable {
+                color: var(--color-on-surface);
+            }
+
+            svg {
+                use {
+                    fill: var(--color-on-surface) !important;
+                }
+            }
+        }
+
+        &:active {
+            border-color: var(--color-on-surface);
+            background-color: color-mix(in srgb, var(--color-surface-container-low), black 20%);
+
+            .ButtoM3_lable {
+                color: var(--color-on-surface);
+            }
+
+            svg {
+                use {
+                    fill: var(--color-on-surface) !important;
+                }
+            }
+        }
+    }
+
+    &.danger {
+        background-color: var(--color-tertiary);
+        transition: 150ms ease-in-out all;
+
+        svg {
+            use {
+                fill: var(--color-on-primary) !important;
+            }
+        }
+
+        .ButtoM3_lable {
+            color: var(--color-on-primary);
+        }
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--color-tertiary), white 20%);
+        }
+
+        &:active {
+            background-color: color-mix(in srgb, var(--color-tertiary), black 15%);
+        }
+    }
+
+    &.error {
+        background-color: var(--color-error);
+        transition: 150ms ease-in-out all;
+
+        svg {
+            use {
+                fill: var(--color-on-primary) !important;
+            }
+        }
+
+        .ButtoM3_lable {
+            color: var(--color-on-primary);
+        }
+
+        &:hover {
+            background-color: color-mix(in srgb, var(--color-error), white 20%);
+        }
+
+        &:active {
+            background-color: color-mix(in srgb, var(--color-error), black 15%);
+        }
+    }
+
+    &.borderless {
+        background-color: #00000000;
+        transition: 150ms ease-in-out all;
+
+        svg {
+            use {
+                fill: var(--color-outline) !important;
+            }
+        }
+
+        .ButtoM3_lable {
+            color: var(--color-outline);
+        }
+
+        &:hover {
+            background-color: color-mix(in srgb, #00000031, white 20%);
+
+            .ButtoM3_lable {
+                color: var(--color-on-surface-variant);
+            }
+
+            svg {
+                use {
+                    fill: var(--color-on-surface-variant) !important;
+                }
+            }
+        }
+
+        &:active {
+            background-color: color-mix(in srgb, #00000031, black 15%);
+
+            .ButtoM3_lable {
+                color: var(--color-on-surface);
+            }
+
+            svg {
+                use {
+                    fill: var(--color-on-surface) !important;
+                }
+            }
+        }
+    }
+
+    &.unclickable{
+        pointer-events: none;
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+    &.square {
+        border-radius: 16px;
+
+        &:hover {
+            border-radius: 50px;
+        }
+    }
+
+    &.round {
+        border-radius: 50px;
+
+        &:hover {
+            border-radius: 16px;
+        }
+    }
+
+}

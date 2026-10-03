@@ -1,0 +1,21 @@
+.CradsViewMain {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-row: 2;
+    padding: 12px;
+    padding-top: 54px;
+    box-sizing: border-box;
+    
+
+    .CradsViewConteiner {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        height: max-content;
+        column-gap: 25px;
+        row-gap: 54px;
+        justify-content: center;
+        align-items: center;
+    }
+}

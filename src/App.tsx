@@ -1,15 +1,22 @@
-
 import './App.css'
-import {debugUI } from './utils/debug'
+import './assets/styles/Thems_Color/Wight_Them.scss'
+import { Header, ViewPortLayout } from '@/widgets';
+import { NavigationProvider, ModalWindowProvider, BootStrapProvider, TimerManagerProvider } from '@/app/providers'
 
 
 function App() {
-  debugUI("UI debug main");
 
   return (
-    <>
-    <h1>hello world</h1>
-    </>
+    <BootStrapProvider>
+      <TimerManagerProvider>
+        <ModalWindowProvider>
+          <NavigationProvider>
+            <Header></Header>
+            <ViewPortLayout></ViewPortLayout>
+          </NavigationProvider>
+        </ModalWindowProvider>
+      </TimerManagerProvider>
+    </BootStrapProvider>
   )
 }
 

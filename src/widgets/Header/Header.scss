@@ -1,0 +1,22 @@
+.Header_Conteiner {
+    display: grid;
+    position: relative;
+    width: 100%;
+    min-height: 80px;
+    max-height: 80px;
+    box-sizing: border-box;
+    background-color: var(--color-surface-container-highest);
+    grid-template-columns: repeat(4, 48px) 128px 164px 1fr;
+    align-items: center;
+    grid-gap: 14px;
+    padding-left: 26px;
+    padding-right: 26px;
+    justify-items: center;
+    .Header_Lable{
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        font-size: 32px;
+        font-weight: 400;
+    }
+}
